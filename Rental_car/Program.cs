@@ -18,6 +18,7 @@ namespace Rental_car
 
         public static EnterScreen mainScreen;
         public static ClientScreen clientScreen;
+        public static AgentScreen agentScreen;
 
         [STAThread]
         static void Main()

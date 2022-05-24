@@ -11,6 +11,7 @@ namespace Rental_car
         public DateTime DateTimeStartRental { get; set; }
         public DateTime DateTimeEndRental { get; set; }
         public string VIN { get; set; }
+        public int ApplicationCode { get; set; }
         public int Price { get; set; }
         public int Days { get; set; }
 
@@ -18,6 +19,10 @@ namespace Rental_car
         {
             this.VIN = VIN;
             this.Price = Price;
+        }
+        public ApplicationData(int applicationCode)
+        {
+            ApplicationCode = applicationCode;
         }
 
     }

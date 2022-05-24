@@ -40,16 +40,6 @@ namespace Rental_car
             this.fillToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewClientCatalogue = new System.Windows.Forms.DataGridView();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bodytypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gearboxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enginevolumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enginepowerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientcatalogueBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBDataSet = new Rental_car.DBDataSet();
             this.tabPageProfile = new System.Windows.Forms.TabPage();
@@ -107,6 +97,7 @@ namespace Rental_car
             this.applicationcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuForDataGreedViewClientApplication = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cancelApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshApplicationTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getClientApplicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.client_catalogueTableAdapter = new Rental_car.DBDataSetTableAdapters.client_catalogueTableAdapter();
             this.searchCarBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -115,7 +106,16 @@ namespace Rental_car
             this.getInvoiceContentTableAdapter = new Rental_car.DBDataSetTableAdapters.GetInvoiceContentTableAdapter();
             this.getClientInvoicesTableAdapter = new Rental_car.DBDataSetTableAdapters.GetClientInvoicesTableAdapter();
             this.getClientApplicationTableAdapter = new Rental_car.DBDataSetTableAdapters.GetClientApplicationTableAdapter();
-            this.refreshApplicationTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bodytypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gearboxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enginevolumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enginepowerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlClient.SuspendLayout();
             this.tabPageCatalogue.SuspendLayout();
             this.fillToolStrip.SuspendLayout();
@@ -252,77 +252,6 @@ namespace Rental_car
             this.dataGridViewClientCatalogue.Size = new System.Drawing.Size(1111, 610);
             this.dataGridViewClientCatalogue.TabIndex = 1;
             this.dataGridViewClientCatalogue.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewClientCatalogue_CellMouseDoubleClick);
-            // 
-            // brandDataGridViewTextBoxColumn
-            // 
-            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
-            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
-            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            this.brandDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            this.modelDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // colorDataGridViewTextBoxColumn
-            // 
-            this.colorDataGridViewTextBoxColumn.DataPropertyName = "Color";
-            this.colorDataGridViewTextBoxColumn.HeaderText = "Color";
-            this.colorDataGridViewTextBoxColumn.Name = "colorDataGridViewTextBoxColumn";
-            this.colorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bodytypeDataGridViewTextBoxColumn
-            // 
-            this.bodytypeDataGridViewTextBoxColumn.DataPropertyName = "Body_type";
-            this.bodytypeDataGridViewTextBoxColumn.HeaderText = "Body_type";
-            this.bodytypeDataGridViewTextBoxColumn.Name = "bodytypeDataGridViewTextBoxColumn";
-            this.bodytypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // gearboxDataGridViewTextBoxColumn
-            // 
-            this.gearboxDataGridViewTextBoxColumn.DataPropertyName = "Gearbox";
-            this.gearboxDataGridViewTextBoxColumn.HeaderText = "Gearbox";
-            this.gearboxDataGridViewTextBoxColumn.Name = "gearboxDataGridViewTextBoxColumn";
-            this.gearboxDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // enginevolumeDataGridViewTextBoxColumn
-            // 
-            this.enginevolumeDataGridViewTextBoxColumn.DataPropertyName = "Engine_volume";
-            this.enginevolumeDataGridViewTextBoxColumn.HeaderText = "Engine_volume";
-            this.enginevolumeDataGridViewTextBoxColumn.Name = "enginevolumeDataGridViewTextBoxColumn";
-            this.enginevolumeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // enginepowerDataGridViewTextBoxColumn
-            // 
-            this.enginepowerDataGridViewTextBoxColumn.DataPropertyName = "Engine_power";
-            this.enginepowerDataGridViewTextBoxColumn.HeaderText = "Engine_power";
-            this.enginepowerDataGridViewTextBoxColumn.Name = "enginepowerDataGridViewTextBoxColumn";
-            this.enginepowerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vINDataGridViewTextBoxColumn
-            // 
-            this.vINDataGridViewTextBoxColumn.DataPropertyName = "VIN";
-            this.vINDataGridViewTextBoxColumn.HeaderText = "VIN";
-            this.vINDataGridViewTextBoxColumn.Name = "vINDataGridViewTextBoxColumn";
-            this.vINDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vINDataGridViewTextBoxColumn.Visible = false;
             // 
             // clientcatalogueBindingSource
             // 
@@ -838,6 +767,13 @@ namespace Rental_car
             this.cancelApplicationToolStripMenuItem.Text = "Отменить заявку";
             this.cancelApplicationToolStripMenuItem.Click += new System.EventHandler(this.cancelApplicationToolStripMenuItem_Click);
             // 
+            // refreshApplicationTableToolStripMenuItem
+            // 
+            this.refreshApplicationTableToolStripMenuItem.Name = "refreshApplicationTableToolStripMenuItem";
+            this.refreshApplicationTableToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.refreshApplicationTableToolStripMenuItem.Text = "Обновить таблицу";
+            this.refreshApplicationTableToolStripMenuItem.Click += new System.EventHandler(this.refreshApplicationTableToolStripMenuItem_Click);
+            // 
             // getClientApplicationBindingSource
             // 
             this.getClientApplicationBindingSource.DataMember = "GetClientApplication";
@@ -881,12 +817,76 @@ namespace Rental_car
             // 
             this.getClientApplicationTableAdapter.ClearBeforeFill = true;
             // 
-            // refreshApplicationTableToolStripMenuItem
+            // brandDataGridViewTextBoxColumn
             // 
-            this.refreshApplicationTableToolStripMenuItem.Name = "refreshApplicationTableToolStripMenuItem";
-            this.refreshApplicationTableToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.refreshApplicationTableToolStripMenuItem.Text = "Обновить таблицу";
-            this.refreshApplicationTableToolStripMenuItem.Click += new System.EventHandler(this.refreshApplicationTableToolStripMenuItem_Click);
+            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            this.brandDataGridViewTextBoxColumn.HeaderText = "Марка";
+            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            this.brandDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Модель";
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            this.modelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // colorDataGridViewTextBoxColumn
+            // 
+            this.colorDataGridViewTextBoxColumn.DataPropertyName = "Color";
+            this.colorDataGridViewTextBoxColumn.HeaderText = "Цвет";
+            this.colorDataGridViewTextBoxColumn.Name = "colorDataGridViewTextBoxColumn";
+            this.colorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bodytypeDataGridViewTextBoxColumn
+            // 
+            this.bodytypeDataGridViewTextBoxColumn.DataPropertyName = "Body_type";
+            this.bodytypeDataGridViewTextBoxColumn.HeaderText = "Кузов";
+            this.bodytypeDataGridViewTextBoxColumn.Name = "bodytypeDataGridViewTextBoxColumn";
+            this.bodytypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // gearboxDataGridViewTextBoxColumn
+            // 
+            this.gearboxDataGridViewTextBoxColumn.DataPropertyName = "Gearbox";
+            this.gearboxDataGridViewTextBoxColumn.HeaderText = "КПП";
+            this.gearboxDataGridViewTextBoxColumn.Name = "gearboxDataGridViewTextBoxColumn";
+            this.gearboxDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Категория";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // enginevolumeDataGridViewTextBoxColumn
+            // 
+            this.enginevolumeDataGridViewTextBoxColumn.DataPropertyName = "Engine_volume";
+            this.enginevolumeDataGridViewTextBoxColumn.HeaderText = "Объем двигателя";
+            this.enginevolumeDataGridViewTextBoxColumn.Name = "enginevolumeDataGridViewTextBoxColumn";
+            this.enginevolumeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // enginepowerDataGridViewTextBoxColumn
+            // 
+            this.enginepowerDataGridViewTextBoxColumn.DataPropertyName = "Engine_power";
+            this.enginepowerDataGridViewTextBoxColumn.HeaderText = "Мощность";
+            this.enginepowerDataGridViewTextBoxColumn.Name = "enginepowerDataGridViewTextBoxColumn";
+            this.enginepowerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Цена в день";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vINDataGridViewTextBoxColumn
+            // 
+            this.vINDataGridViewTextBoxColumn.DataPropertyName = "VIN";
+            this.vINDataGridViewTextBoxColumn.HeaderText = "VIN";
+            this.vINDataGridViewTextBoxColumn.Name = "vINDataGridViewTextBoxColumn";
+            this.vINDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vINDataGridViewTextBoxColumn.Visible = false;
             // 
             // ClientScreen
             // 
@@ -1009,6 +1009,8 @@ namespace Rental_car
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn applicationcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ToolStripMenuItem refreshApplicationTableToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colorDataGridViewTextBoxColumn;
@@ -1019,7 +1021,5 @@ namespace Rental_car
         private System.Windows.Forms.DataGridViewTextBoxColumn enginepowerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vINDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ToolStripMenuItem refreshApplicationTableToolStripMenuItem;
     }
 }

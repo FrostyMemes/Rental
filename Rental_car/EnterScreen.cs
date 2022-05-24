@@ -56,15 +56,17 @@ namespace Rental_car
                     Program.clientCard = new ClientCard(personData);
                     Program.clientScreen = new ClientScreen();
                     Program.clientScreen.Show();
-                    this.Hide();
-                    return;
                 }
                 else
                 {
-                  //  Program.agentCard = new AgentCard(personData);
+                    Program.agentCard = new AgentCard(personData);
+                    Program.agentScreen = new AgentScreen();
+                    Program.agentScreen.Show();                 
                 }
+                this.Hide();
             }
-            MessageBox.Show("Пользователь не найден.\nПроверьте данные и повторите попытку.");
+            else
+                MessageBox.Show("Пользователь не найден.\nПроверьте данные и повторите попытку.");
         }
     }
 }

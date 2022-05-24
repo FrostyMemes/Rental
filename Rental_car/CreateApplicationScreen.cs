@@ -46,9 +46,14 @@ namespace Rental_car
         {
             try
             {
+                if (dateTimePickerEndRental.Value<dateTimePickerStartRental.Value || dateTimePickerStartRental.Value < DateTime.Now || dateTimePickerEndRental.Value < DateTime.Now)
+                {
+                    MessageBox.Show("Неверный формат даты", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 if (CheckAvailability())
                 {
-                    DBConnection.RunQuery($@"INSERT INTO application VALUES(NULL, 
+                        DBConnection.RunQuery($@"INSERT INTO application VALUES(NULL, 
                                                          DEFAULT, 
                                                         '{Program.clientCard.Client_number}', 
                                                         '{Program.applicationData.VIN}', 
@@ -61,14 +66,15 @@ namespace Rental_car
                                                          DEFAULT,
                                                          NULL)");
 
-                    MessageBox.Show("Заявка на прокат была добавлена в обработку!\nОжидайте ответа представителя", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                        MessageBox.Show("Заявка на прокат была добавлена в обработку!\nОжидайте ответа представителя", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
-                else
-                {
+                 else
+                 {
                     MessageBox.Show("Автомобиль занят на это время.\nВыберите другой период проката", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                this.Close();
+                 }
+                 this.Close();
+                
             }
             catch(Exception ex)
             {
