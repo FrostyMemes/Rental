@@ -25,3 +25,5 @@ D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.Registra
 D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.ClientScreen.resources
 D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.AgentScreen.resources
 D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.CreateApplicationScreen.resources
+D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.ClientDetailScreen.resources
+D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.CarCardScreen.resources

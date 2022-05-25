@@ -12,6 +12,7 @@ namespace Rental_car
         /// Главная точка входа для приложения.
         /// </summary>
         /// 
+        public static ClientDetailScreen ClientDetailScreen;
         public static ClientCard clientCard;
         public static AgentCard agentCard;
         public static ApplicationData applicationData;

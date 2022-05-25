@@ -161,7 +161,7 @@ namespace Rental_car
         {
             if (e.RowIndex != -1)
             {
-                getClientApplicationDataGridView.Rows[selectedApplicationRow].Selected = false;
+                getClientApplicationDataGridView.ClearSelection();
                 selectedApplicationRow = e.RowIndex;
                 getClientApplicationDataGridView.Rows[e.RowIndex].Selected = true;
             }
@@ -181,6 +181,6 @@ namespace Rental_car
             }
         }
 
-
+        
     }
 }

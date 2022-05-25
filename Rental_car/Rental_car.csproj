@@ -67,6 +67,19 @@
       <DependentUpon>AgentScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplicationData.cs" />
+    <Compile Include="CarCard.cs" />
+    <Compile Include="CarCardScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarCardScreen.Designer.cs">
+      <DependentUpon>CarCardScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientDetailScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientDetailScreen.Designer.cs">
+      <DependentUpon>ClientDetailScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientCard.cs" />
     <Compile Include="ClientScreen.cs">
       <SubType>Form</SubType>
@@ -102,6 +115,12 @@
     </Compile>
     <EmbeddedResource Include="AgentScreen.resx">
       <DependentUpon>AgentScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarCardScreen.resx">
+      <DependentUpon>CarCardScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientDetailScreen.resx">
+      <DependentUpon>ClientDetailScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientScreen.resx">
       <DependentUpon>ClientScreen.cs</DependentUpon>
