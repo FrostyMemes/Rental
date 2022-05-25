@@ -12,14 +12,18 @@ namespace Rental_car
         /// Главная точка входа для приложения.
         /// </summary>
         /// 
-        public static ClientDetailScreen ClientDetailScreen;
+        public static int carCardMode;  //1 - обновления, 0 - добавление
+        
+        
         public static ClientCard clientCard;
         public static AgentCard agentCard;
-        public static ApplicationData applicationData;
+        public static CarCard carCard;
+        public static ApplicationCard applicationData;
 
         public static EnterScreen mainScreen;
         public static ClientScreen clientScreen;
         public static AgentScreen agentScreen;
+        public static ClientDetailScreen ClientDetailScreen;
 
         [STAThread]
         static void Main()

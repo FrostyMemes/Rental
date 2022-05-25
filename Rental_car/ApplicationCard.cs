@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rental_car
 {
-    public class ApplicationData
+    public class ApplicationCard
     {
         public DateTime DateTimeStartRental { get; set; }
         public DateTime DateTimeEndRental { get; set; }
@@ -15,12 +15,12 @@ namespace Rental_car
         public int Price { get; set; }
         public int Days { get; set; }
 
-        public ApplicationData(string VIN, int Price)
+        public ApplicationCard(string VIN, int Price)
         {
             this.VIN = VIN;
             this.Price = Price;
         }
-        public ApplicationData(int applicationCode)
+        public ApplicationCard(int applicationCode)
         {
             ApplicationCode = applicationCode;
         }

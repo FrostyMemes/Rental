@@ -66,7 +66,7 @@
     <Compile Include="AgentScreen.Designer.cs">
       <DependentUpon>AgentScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationData.cs" />
+    <Compile Include="ApplicationCard.cs" />
     <Compile Include="CarCard.cs" />
     <Compile Include="CarCardScreen.cs">
       <SubType>Form</SubType>

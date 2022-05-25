@@ -120,10 +120,7 @@ namespace Rental_car
             Program.mainScreen.Show();
         }
 
-        private void кToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -174,7 +171,7 @@ namespace Rental_car
             {
                 string vin = dataGridViewClientCatalogue.Rows[e.RowIndex].Cells[9].Value.ToString();
                 int price = int.Parse(dataGridViewClientCatalogue.Rows[e.RowIndex].Cells[8].Value.ToString());
-                Program.applicationData = new ApplicationData(vin, price);
+                Program.applicationData = new ApplicationCard(vin, price);
 
                 var createApplicationForm = new CreateApplicationScreen();
                 createApplicationForm.Show();

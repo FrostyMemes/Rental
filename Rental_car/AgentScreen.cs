@@ -14,11 +14,17 @@ namespace Rental_car
     {
         
         int selectedWaitingApplicationRow;
-        int selectedConfirmedApplications;
+        int selectedConfirmedApplicationsRow;
+        int selectedCarInformationRow;
 
         public AgentScreen()
         {
             InitializeComponent();
+        }
+
+        public bool CheckDocumentExsiting(string idApplication)
+        {
+            return DBConnection.GetResultQueryString($"SELECT car_rental.CheckDocumentExsisting({idApplication});") == "1";
         }
 
         private void AgentScreen_Load(object sender, EventArgs e)
@@ -145,7 +151,7 @@ namespace Rental_car
             if (e.RowIndex != -1)
             {
                 getConfirmedApplicationsDataGridView.ClearSelection();
-                selectedConfirmedApplications = e.RowIndex;
+                selectedConfirmedApplicationsRow = e.RowIndex;
                 getConfirmedApplicationsDataGridView.Rows[e.RowIndex].Selected = true;
             }
         }
@@ -167,7 +173,18 @@ namespace Rental_car
         {
             if (e.RowIndex != -1)
             {
-                
+                var carData = DBConnection.GetResultQueryDataTable($@"Select * from car where VIN = '{searchCarWithParametrsDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString()}';");
+                if (carData.Rows.Count != 0)
+                {
+                    Program.carCardMode = 1;
+                    Program.carCard = new CarCard(carData);
+                    CarCardScreen carCardScreen = new CarCardScreen();
+                    carCardScreen.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Такого автомобиля не существует в системе", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -208,6 +225,22 @@ namespace Rental_car
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void openDocumentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
+                MessageBox.Show("Документы есть");
+            else
+                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void createDocumentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
+                MessageBox.Show("На данную заявку уже были оформлены документы", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
