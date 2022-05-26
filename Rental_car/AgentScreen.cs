@@ -38,11 +38,12 @@ namespace Rental_car
 
         private void AgentScreen_Load(object sender, EventArgs e)
         {
-            
+           
+
             try
             {
                 this.waiting_applicationsTableAdapter.Fill(this.dBDataSet.waiting_applications);
-                this.getConfirmedApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmedApplications, new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Month, typeof(int))))), new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Year, typeof(int)))))); //!!!!!!!!!!!!!!!!!!!
+                this.getConfirmApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmApplications);
                 this.searchCarWithParametrsTableAdapter.Fill(this.dBDataSet.SearchCarWithParametrs, "", "", "", "");
                 this.getClientStatisticTableAdapter.Fill(this.dBDataSet.GetClientStatistic, new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Year, typeof(int))))));
                 this.rental_cars_nowTableAdapter.Fill(this.dBDataSet.rental_cars_now);
@@ -128,48 +129,6 @@ namespace Rental_car
             }
         }
 
-        private void searchConfirmedApplicationDatefillToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.getConfirmedApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmedApplications, new System.Nullable<int>(((int)(System.Convert.ChangeType(app_monthToolStripTextBox.Text, typeof(int))))), new System.Nullable<int>(((int)(System.Convert.ChangeType(app_yearToolStripTextBox.Text, typeof(int))))));
-                getConfirmedApplicationsDataGridView.DataSource = getConfirmedApplicationsBindingSource;
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void refreshToolStripButton_Click(object sender, EventArgs e)
-        {
-            this.getConfirmedApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmedApplications, new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Month, typeof(int))))), new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Year, typeof(int))))));
-            getConfirmedApplicationsDataGridView.DataSource = getConfirmedApplicationsBindingSource;
-        }
-
-        private void searchConfirmedApplicationSurnameTelephonefillToolStripButton_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                this.getClientConfirmedApplicationsTableAdapter.Fill(this.dBDataSet.GetClientConfirmedApplications, client_surnameToolStripTextBox.Text, client_telephoneToolStripTextBox.Text);
-                getConfirmedApplicationsDataGridView.DataSource = getClientConfirmedApplicationsBindingSource;
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void getConfirmedApplicationsDataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex != -1)
-            {
-                getConfirmedApplicationsDataGridView.ClearSelection();
-                selectedConfirmedApplicationsRow = e.RowIndex;
-                getConfirmedApplicationsDataGridView.Rows[e.RowIndex].Selected = true;
-            }
-        }
 
         private void fillToolStripButton2_Click(object sender, EventArgs e)
         {
@@ -249,18 +208,18 @@ namespace Rental_car
 
         private void createDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
+           /* if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
                 MessageBox.Show("На данную заявку уже были оформлены документы", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
         }
 
         private void openDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
+            /*if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
                 MessageBox.Show("Документы есть");
             else
-                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
         }
 
         private void toolStripMenuItemAddCar_Click(object sender, EventArgs e)
@@ -286,6 +245,46 @@ namespace Rental_car
             }
         }
 
+ 
+      private void findConfirmedApplicationMonthYearfillToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.getConfirmedMonthYearApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmedMonthYearApplications, new System.Nullable<int>(((int)(System.Convert.ChangeType(app_monthToolStripTextBox.Text, typeof(int))))), new System.Nullable<int>(((int)(System.Convert.ChangeType(app_yearToolStripTextBox.Text, typeof(int))))));
+                getConfirmApplicationsDataGridView.DataSource = getConfirmedMonthYearApplicationsBindingSource;
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
+        }
+
+        private void refreshConfirmedApplicationstoolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.getConfirmApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmApplications);
+                getConfirmApplicationsDataGridView.DataSource = getConfirmApplicationsBindingSource;
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void findConfirmedApplicationClientfillToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.getConfirmedClientApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmedClientApplications, client_surnameToolStripTextBox.Text, client_telephoneToolStripTextBox.Text);
+                getConfirmApplicationsDataGridView.DataSource = getConfirmedClientApplicationsBindingSource;
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
