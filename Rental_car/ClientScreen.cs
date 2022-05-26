@@ -109,9 +109,9 @@ namespace Rental_car
                 Program.clientCard.Address              = txtAddress.Text;
                 Program.clientCard.Address              = dtimeBirthday.Value.ToString();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Ошибка!\nПовторите попытку позднее или обратитесь к администратору", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
         }
 

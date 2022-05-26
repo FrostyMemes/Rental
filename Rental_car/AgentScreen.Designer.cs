@@ -186,8 +186,6 @@ namespace Rental_car
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbGender = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dtimeBirthday = new System.Windows.Forms.DateTimePicker();
             this.txtTelephone = new System.Windows.Forms.TextBox();
@@ -219,6 +217,7 @@ namespace Rental_car
             this.getConfirmedClientApplicationsTableAdapter = new Rental_car.DBDataSetTableAdapters.GetConfirmedClientApplicationsTableAdapter();
             this.getConfirmedMonthYearApplicationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getConfirmedMonthYearApplicationsTableAdapter = new Rental_car.DBDataSetTableAdapters.GetConfirmedMonthYearApplicationsTableAdapter();
+            this.btnUpdateAgentData = new System.Windows.Forms.Button();
             this.tabControlAgentScreen.SuspendLayout();
             this.tabPageWaitingApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waitingApplicationsDataGridView)).BeginInit();
@@ -268,7 +267,7 @@ namespace Rental_car
             this.tabControlAgentScreen.Location = new System.Drawing.Point(0, 0);
             this.tabControlAgentScreen.Name = "tabControlAgentScreen";
             this.tabControlAgentScreen.SelectedIndex = 0;
-            this.tabControlAgentScreen.Size = new System.Drawing.Size(1394, 665);
+            this.tabControlAgentScreen.Size = new System.Drawing.Size(1308, 596);
             this.tabControlAgentScreen.TabIndex = 0;
             // 
             // tabPageWaitingApplications
@@ -277,7 +276,7 @@ namespace Rental_car
             this.tabPageWaitingApplications.Location = new System.Drawing.Point(4, 22);
             this.tabPageWaitingApplications.Name = "tabPageWaitingApplications";
             this.tabPageWaitingApplications.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWaitingApplications.Size = new System.Drawing.Size(1386, 639);
+            this.tabPageWaitingApplications.Size = new System.Drawing.Size(1300, 570);
             this.tabPageWaitingApplications.TabIndex = 0;
             this.tabPageWaitingApplications.Text = "Ожидающие заявки";
             this.tabPageWaitingApplications.UseVisualStyleBackColor = true;
@@ -313,8 +312,9 @@ namespace Rental_car
             this.waitingApplicationsDataGridView.Name = "waitingApplicationsDataGridView";
             this.waitingApplicationsDataGridView.ReadOnly = true;
             this.waitingApplicationsDataGridView.RowHeadersVisible = false;
-            this.waitingApplicationsDataGridView.Size = new System.Drawing.Size(1380, 633);
+            this.waitingApplicationsDataGridView.Size = new System.Drawing.Size(1294, 564);
             this.waitingApplicationsDataGridView.TabIndex = 0;
+            this.waitingApplicationsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.waitingApplicationsDataGridView_CellDoubleClick);
             this.waitingApplicationsDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.waitingApplicationsDataGridView_CellMouseDown);
             // 
             // fathernameDataGridViewTextBoxColumn
@@ -484,7 +484,7 @@ namespace Rental_car
             this.tabPageConfirmedApplications.Location = new System.Drawing.Point(4, 22);
             this.tabPageConfirmedApplications.Name = "tabPageConfirmedApplications";
             this.tabPageConfirmedApplications.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConfirmedApplications.Size = new System.Drawing.Size(1386, 639);
+            this.tabPageConfirmedApplications.Size = new System.Drawing.Size(1300, 570);
             this.tabPageConfirmedApplications.TabIndex = 1;
             this.tabPageConfirmedApplications.Text = "Подтвержденные заявки";
             this.tabPageConfirmedApplications.UseVisualStyleBackColor = true;
@@ -515,14 +515,16 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn78,
             this.dataGridViewTextBoxColumn79});
+            this.getConfirmApplicationsDataGridView.ContextMenuStrip = this.contextMenuStripConfirmedApplicationTable;
             this.getConfirmApplicationsDataGridView.DataSource = this.getConfirmApplicationsBindingSource;
             this.getConfirmApplicationsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.getConfirmApplicationsDataGridView.Location = new System.Drawing.Point(3, 3);
             this.getConfirmApplicationsDataGridView.Name = "getConfirmApplicationsDataGridView";
             this.getConfirmApplicationsDataGridView.ReadOnly = true;
             this.getConfirmApplicationsDataGridView.RowHeadersVisible = false;
-            this.getConfirmApplicationsDataGridView.Size = new System.Drawing.Size(1380, 608);
+            this.getConfirmApplicationsDataGridView.Size = new System.Drawing.Size(1294, 539);
             this.getConfirmApplicationsDataGridView.TabIndex = 5;
+            this.getConfirmApplicationsDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.getConfirmApplicationsDataGridView_CellMouseDown);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -679,17 +681,17 @@ namespace Rental_car
             this.findConfirmedApplicationClientfillToolStripButton,
             this.toolStripSeparator2,
             this.refreshConfirmedApplicationstoolStripButton});
-            this.fillToolStrip3.Location = new System.Drawing.Point(3, 611);
+            this.fillToolStrip3.Location = new System.Drawing.Point(3, 542);
             this.fillToolStrip3.Name = "fillToolStrip3";
-            this.fillToolStrip3.Size = new System.Drawing.Size(1380, 25);
+            this.fillToolStrip3.Size = new System.Drawing.Size(1294, 25);
             this.fillToolStrip3.TabIndex = 4;
             this.fillToolStrip3.Text = "fillToolStrip3";
             // 
             // app_monthToolStripLabel
             // 
             this.app_monthToolStripLabel.Name = "app_monthToolStripLabel";
-            this.app_monthToolStripLabel.Size = new System.Drawing.Size(71, 22);
-            this.app_monthToolStripLabel.Text = "app_month:";
+            this.app_monthToolStripLabel.Size = new System.Drawing.Size(85, 22);
+            this.app_monthToolStripLabel.Text = "Месяц заявки:";
             // 
             // app_monthToolStripTextBox
             // 
@@ -700,8 +702,8 @@ namespace Rental_car
             // app_yearToolStripLabel
             // 
             this.app_yearToolStripLabel.Name = "app_yearToolStripLabel";
-            this.app_yearToolStripLabel.Size = new System.Drawing.Size(57, 22);
-            this.app_yearToolStripLabel.Text = "app_year:";
+            this.app_yearToolStripLabel.Size = new System.Drawing.Size(68, 22);
+            this.app_yearToolStripLabel.Text = "Год заявки:";
             // 
             // app_yearToolStripTextBox
             // 
@@ -725,8 +727,8 @@ namespace Rental_car
             // client_surnameToolStripLabel
             // 
             this.client_surnameToolStripLabel.Name = "client_surnameToolStripLabel";
-            this.client_surnameToolStripLabel.Size = new System.Drawing.Size(90, 22);
-            this.client_surnameToolStripLabel.Text = "client_surname:";
+            this.client_surnameToolStripLabel.Size = new System.Drawing.Size(61, 22);
+            this.client_surnameToolStripLabel.Text = "Фамилия:";
             // 
             // client_surnameToolStripTextBox
             // 
@@ -737,8 +739,8 @@ namespace Rental_car
             // client_telephoneToolStripLabel
             // 
             this.client_telephoneToolStripLabel.Name = "client_telephoneToolStripLabel";
-            this.client_telephoneToolStripLabel.Size = new System.Drawing.Size(97, 22);
-            this.client_telephoneToolStripLabel.Text = "client_telephone:";
+            this.client_telephoneToolStripLabel.Size = new System.Drawing.Size(104, 22);
+            this.client_telephoneToolStripLabel.Text = "Номер телефона:";
             // 
             // client_telephoneToolStripTextBox
             // 
@@ -773,7 +775,7 @@ namespace Rental_car
             this.tabPageAgentCatalogue.Controls.Add(this.searchCarWithParametrsDataGridView);
             this.tabPageAgentCatalogue.Location = new System.Drawing.Point(4, 22);
             this.tabPageAgentCatalogue.Name = "tabPageAgentCatalogue";
-            this.tabPageAgentCatalogue.Size = new System.Drawing.Size(1386, 639);
+            this.tabPageAgentCatalogue.Size = new System.Drawing.Size(1300, 570);
             this.tabPageAgentCatalogue.TabIndex = 5;
             this.tabPageAgentCatalogue.Text = "Автопарк";
             this.tabPageAgentCatalogue.UseVisualStyleBackColor = true;
@@ -792,9 +794,9 @@ namespace Rental_car
             this.car_ModelToolStripTextBox,
             this.fillToolStripButton2,
             this.RefreshCatalogueToolStripButton});
-            this.fillToolStrip1.Location = new System.Drawing.Point(0, 614);
+            this.fillToolStrip1.Location = new System.Drawing.Point(0, 545);
             this.fillToolStrip1.Name = "fillToolStrip1";
-            this.fillToolStrip1.Size = new System.Drawing.Size(1386, 25);
+            this.fillToolStrip1.Size = new System.Drawing.Size(1300, 25);
             this.fillToolStrip1.TabIndex = 2;
             this.fillToolStrip1.Text = "fillToolStrip1";
             // 
@@ -866,6 +868,9 @@ namespace Rental_car
             // 
             this.searchCarWithParametrsDataGridView.AllowUserToAddRows = false;
             this.searchCarWithParametrsDataGridView.AllowUserToDeleteRows = false;
+            this.searchCarWithParametrsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchCarWithParametrsDataGridView.AutoGenerateColumns = false;
             this.searchCarWithParametrsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchCarWithParametrsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -889,12 +894,11 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn38});
             this.searchCarWithParametrsDataGridView.ContextMenuStrip = this.contextMenuStripCarTable;
             this.searchCarWithParametrsDataGridView.DataSource = this.searchCarWithParametrsBindingSource;
-            this.searchCarWithParametrsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchCarWithParametrsDataGridView.Location = new System.Drawing.Point(0, 0);
             this.searchCarWithParametrsDataGridView.Name = "searchCarWithParametrsDataGridView";
             this.searchCarWithParametrsDataGridView.ReadOnly = true;
             this.searchCarWithParametrsDataGridView.RowHeadersVisible = false;
-            this.searchCarWithParametrsDataGridView.Size = new System.Drawing.Size(1386, 639);
+            this.searchCarWithParametrsDataGridView.Size = new System.Drawing.Size(1300, 570);
             this.searchCarWithParametrsDataGridView.TabIndex = 0;
             this.searchCarWithParametrsDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.searchCarWithParametrsDataGridView_CellMouseDoubleClick);
             this.searchCarWithParametrsDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.searchCarWithParametrsDataGridView_CellMouseDown);
@@ -1065,7 +1069,7 @@ namespace Rental_car
             this.tabPageRentalCars.Location = new System.Drawing.Point(4, 22);
             this.tabPageRentalCars.Name = "tabPageRentalCars";
             this.tabPageRentalCars.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRentalCars.Size = new System.Drawing.Size(1386, 639);
+            this.tabPageRentalCars.Size = new System.Drawing.Size(1300, 570);
             this.tabPageRentalCars.TabIndex = 6;
             this.tabPageRentalCars.Text = "Сейчас в прокате";
             this.tabPageRentalCars.UseVisualStyleBackColor = true;
@@ -1093,7 +1097,7 @@ namespace Rental_car
             this.rental_cars_nowDataGridView.Name = "rental_cars_nowDataGridView";
             this.rental_cars_nowDataGridView.ReadOnly = true;
             this.rental_cars_nowDataGridView.RowHeadersVisible = false;
-            this.rental_cars_nowDataGridView.Size = new System.Drawing.Size(1380, 633);
+            this.rental_cars_nowDataGridView.Size = new System.Drawing.Size(1294, 564);
             this.rental_cars_nowDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn53
@@ -1177,7 +1181,7 @@ namespace Rental_car
             this.tabPageNotPaidInvoice.Controls.Add(this.not_paid_invoicesDataGridView);
             this.tabPageNotPaidInvoice.Location = new System.Drawing.Point(4, 22);
             this.tabPageNotPaidInvoice.Name = "tabPageNotPaidInvoice";
-            this.tabPageNotPaidInvoice.Size = new System.Drawing.Size(1386, 639);
+            this.tabPageNotPaidInvoice.Size = new System.Drawing.Size(1300, 570);
             this.tabPageNotPaidInvoice.TabIndex = 2;
             this.tabPageNotPaidInvoice.Text = "Неоплаченные счета";
             this.tabPageNotPaidInvoice.UseVisualStyleBackColor = true;
@@ -1186,6 +1190,8 @@ namespace Rental_car
             // 
             this.getInvoiceContentDataGridView.AllowUserToAddRows = false;
             this.getInvoiceContentDataGridView.AllowUserToDeleteRows = false;
+            this.getInvoiceContentDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.getInvoiceContentDataGridView.AutoGenerateColumns = false;
             this.getInvoiceContentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.getInvoiceContentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1194,12 +1200,11 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn51,
             this.dataGridViewTextBoxColumn52});
             this.getInvoiceContentDataGridView.DataSource = this.getInvoiceContentBindingSource;
-            this.getInvoiceContentDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.getInvoiceContentDataGridView.Location = new System.Drawing.Point(0, 404);
+            this.getInvoiceContentDataGridView.Location = new System.Drawing.Point(861, 0);
             this.getInvoiceContentDataGridView.Name = "getInvoiceContentDataGridView";
             this.getInvoiceContentDataGridView.ReadOnly = true;
             this.getInvoiceContentDataGridView.RowHeadersVisible = false;
-            this.getInvoiceContentDataGridView.Size = new System.Drawing.Size(1386, 235);
+            this.getInvoiceContentDataGridView.Size = new System.Drawing.Size(438, 570);
             this.getInvoiceContentDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn49
@@ -1239,6 +1244,9 @@ namespace Rental_car
             // 
             this.not_paid_invoicesDataGridView.AllowUserToAddRows = false;
             this.not_paid_invoicesDataGridView.AllowUserToDeleteRows = false;
+            this.not_paid_invoicesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.not_paid_invoicesDataGridView.AutoGenerateColumns = false;
             this.not_paid_invoicesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.not_paid_invoicesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1253,12 +1261,11 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn47,
             this.dataGridViewTextBoxColumn48});
             this.not_paid_invoicesDataGridView.DataSource = this.not_paid_invoicesBindingSource;
-            this.not_paid_invoicesDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.not_paid_invoicesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.not_paid_invoicesDataGridView.Name = "not_paid_invoicesDataGridView";
             this.not_paid_invoicesDataGridView.ReadOnly = true;
             this.not_paid_invoicesDataGridView.RowHeadersVisible = false;
-            this.not_paid_invoicesDataGridView.Size = new System.Drawing.Size(1386, 398);
+            this.not_paid_invoicesDataGridView.Size = new System.Drawing.Size(855, 574);
             this.not_paid_invoicesDataGridView.TabIndex = 0;
             this.not_paid_invoicesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.not_paid_invoicesDataGridView_CellContentClick);
             // 
@@ -1343,7 +1350,7 @@ namespace Rental_car
             this.tabPageClientStatistic.Controls.Add(this.getClientStatisticDataGridView);
             this.tabPageClientStatistic.Location = new System.Drawing.Point(4, 22);
             this.tabPageClientStatistic.Name = "tabPageClientStatistic";
-            this.tabPageClientStatistic.Size = new System.Drawing.Size(1386, 639);
+            this.tabPageClientStatistic.Size = new System.Drawing.Size(1300, 570);
             this.tabPageClientStatistic.TabIndex = 4;
             this.tabPageClientStatistic.Text = "Статистика по клиентам";
             this.tabPageClientStatistic.UseVisualStyleBackColor = true;
@@ -1355,9 +1362,9 @@ namespace Rental_car
             this.client_yearToolStripLabel,
             this.client_yearToolStripTextBox,
             this.fillToolStripButton3});
-            this.fillToolStrip2.Location = new System.Drawing.Point(0, 614);
+            this.fillToolStrip2.Location = new System.Drawing.Point(0, 545);
             this.fillToolStrip2.Name = "fillToolStrip2";
-            this.fillToolStrip2.Size = new System.Drawing.Size(1386, 25);
+            this.fillToolStrip2.Size = new System.Drawing.Size(1300, 25);
             this.fillToolStrip2.TabIndex = 2;
             this.fillToolStrip2.Text = "fillToolStrip2";
             // 
@@ -1385,6 +1392,9 @@ namespace Rental_car
             // 
             this.getClientStatisticDataGridView.AllowUserToAddRows = false;
             this.getClientStatisticDataGridView.AllowUserToDeleteRows = false;
+            this.getClientStatisticDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.getClientStatisticDataGridView.AutoGenerateColumns = false;
             this.getClientStatisticDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.getClientStatisticDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1404,12 +1414,11 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn76,
             this.dataGridViewTextBoxColumn77});
             this.getClientStatisticDataGridView.DataSource = this.getClientStatisticBindingSource;
-            this.getClientStatisticDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.getClientStatisticDataGridView.Location = new System.Drawing.Point(0, 0);
             this.getClientStatisticDataGridView.Name = "getClientStatisticDataGridView";
             this.getClientStatisticDataGridView.ReadOnly = true;
             this.getClientStatisticDataGridView.RowHeadersVisible = false;
-            this.getClientStatisticDataGridView.Size = new System.Drawing.Size(1386, 639);
+            this.getClientStatisticDataGridView.Size = new System.Drawing.Size(1300, 570);
             this.getClientStatisticDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn63
@@ -1528,16 +1537,15 @@ namespace Rental_car
             this.tabPageProfile.Controls.Add(this.groupBox3);
             this.tabPageProfile.Location = new System.Drawing.Point(4, 22);
             this.tabPageProfile.Name = "tabPageProfile";
-            this.tabPageProfile.Size = new System.Drawing.Size(1386, 639);
+            this.tabPageProfile.Size = new System.Drawing.Size(1300, 570);
             this.tabPageProfile.TabIndex = 3;
             this.tabPageProfile.Text = "Профиль ";
             this.tabPageProfile.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnUpdateAgentData);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.cbGender);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.dtimeBirthday);
             this.groupBox1.Controls.Add(this.txtTelephone);
@@ -1550,7 +1558,7 @@ namespace Rental_car
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Location = new System.Drawing.Point(8, 136);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(347, 402);
+            this.groupBox1.Size = new System.Drawing.Size(347, 458);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Личная информация";
@@ -1558,9 +1566,9 @@ namespace Rental_car
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtAddress);
-            this.groupBox2.Location = new System.Drawing.Point(16, 218);
+            this.groupBox2.Location = new System.Drawing.Point(6, 192);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(325, 159);
+            this.groupBox2.Size = new System.Drawing.Size(325, 224);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Адрес";
@@ -1570,28 +1578,8 @@ namespace Rental_car
             this.txtAddress.Location = new System.Drawing.Point(17, 19);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(291, 121);
+            this.txtAddress.Size = new System.Drawing.Size(291, 189);
             this.txtAddress.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(85, 184);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 13);
-            this.label7.TabIndex = 37;
-            this.label7.Text = "Пол";
-            // 
-            // cbGender
-            // 
-            this.cbGender.FormattingEnabled = true;
-            this.cbGender.Items.AddRange(new object[] {
-            "М",
-            "Ж"});
-            this.cbGender.Location = new System.Drawing.Point(136, 181);
-            this.cbGender.Name = "cbGender";
-            this.cbGender.Size = new System.Drawing.Size(195, 21);
-            this.cbGender.TabIndex = 36;
             // 
             // label10
             // 
@@ -1611,7 +1599,7 @@ namespace Rental_car
             // 
             // txtTelephone
             // 
-            this.txtTelephone.Location = new System.Drawing.Point(136, 152);
+            this.txtTelephone.Location = new System.Drawing.Point(136, 156);
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(195, 20);
             this.txtTelephone.TabIndex = 29;
@@ -1810,11 +1798,21 @@ namespace Rental_car
             // 
             this.getConfirmedMonthYearApplicationsTableAdapter.ClearBeforeFill = true;
             // 
+            // btnUpdateAgentData
+            // 
+            this.btnUpdateAgentData.Location = new System.Drawing.Point(6, 422);
+            this.btnUpdateAgentData.Name = "btnUpdateAgentData";
+            this.btnUpdateAgentData.Size = new System.Drawing.Size(325, 23);
+            this.btnUpdateAgentData.TabIndex = 39;
+            this.btnUpdateAgentData.Text = "Изменить данные";
+            this.btnUpdateAgentData.UseVisualStyleBackColor = true;
+            this.btnUpdateAgentData.Click += new System.EventHandler(this.btnUpdateAgentData_Click);
+            // 
             // AgentScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1394, 665);
+            this.ClientSize = new System.Drawing.Size(1308, 596);
             this.Controls.Add(this.tabControlAgentScreen);
             this.Name = "AgentScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1986,8 +1984,6 @@ namespace Rental_car
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemUpdateCar;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDeleteCar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbGender;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtimeBirthday;
         private System.Windows.Forms.TextBox txtTelephone;
@@ -2063,5 +2059,6 @@ namespace Rental_car
         private System.Windows.Forms.ToolStripButton findConfirmedApplicationClientfillToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton refreshConfirmedApplicationstoolStripButton;
+        private System.Windows.Forms.Button btnUpdateAgentData;
     }
 }

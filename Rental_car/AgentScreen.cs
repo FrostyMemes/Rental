@@ -16,6 +16,7 @@ namespace Rental_car
         int selectedWaitingApplicationRow;
         int selectedConfirmedApplicationsRow;
         int selectedCarInformationRow;
+        int selectedClientStatisticRow;
 
         public AgentScreen()
         {
@@ -36,12 +37,36 @@ namespace Rental_car
             }
         }
 
+        private void OpenClientDetail(string clientNymber)
+        {
+            try
+            {
+                var personData = DBConnection.GetResultQueryDataTable($@"Select * from client where Email = '{clientNymber}';");
+                Program.clientCard = new ClientCard(personData);
+                Program.ClientDetailScreen = new ClientDetailScreen();
+                Program.ClientDetailScreen.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void AgentScreen_Load(object sender, EventArgs e)
         {
            
 
             try
             {
+                txtEmail.Text           = Program.agentCard.Email;
+                txtPassword.Text        = Program.agentCard.Password;
+                txtSurname.Text         = Program.agentCard.Surname;
+                txtName.Text            = Program.agentCard.Name;
+                txtFathername.Text      = Program.agentCard.Fathername;
+                txtTelephone.Text       = Program.agentCard.Contact_telephone;
+                txtAddress.Text         = Program.agentCard.Address;
+                dtimeBirthday.Value     = DateTime.Parse(Program.agentCard.Birthday.ToString());
+
                 this.waiting_applicationsTableAdapter.Fill(this.dBDataSet.waiting_applications);
                 this.getConfirmApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmApplications);
                 this.searchCarWithParametrsTableAdapter.Fill(this.dBDataSet.SearchCarWithParametrs, "", "", "", "");
@@ -73,7 +98,9 @@ namespace Rental_car
             try
             {
                 DBConnection.RunQuery($@"UPDATE application SET 
-                                       Status = 'Подтверждено'
+                                       Status = 'Подтверждено',
+                                       Confirmed_date = DEFAULT,
+                                       Agent_number = {Program.agentCard.Agent_number}
                                        WHERE Application_code = {waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[16].Value}");
                 waitingApplicationsDataGridView.Rows.RemoveAt(selectedWaitingApplicationRow);
                 
@@ -90,7 +117,9 @@ namespace Rental_car
             try
             {
                 DBConnection.RunQuery($@"UPDATE application SET 
-                                       Status = 'Отклонено'
+                                       Status = 'Отклонено',
+                                       Confirmed_date = DEFAULT,
+                                       Agent_number = {Program.agentCard.Agent_number}
                                        WHERE Application_code = {waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[16].Value}");
                 waitingApplicationsDataGridView.Rows.RemoveAt(selectedWaitingApplicationRow);
                 
@@ -106,17 +135,9 @@ namespace Rental_car
 
         private void detailClientWaitingApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {         
-                try
-                {
-                    var personData = DBConnection.GetResultQueryDataTable($@"Select * from client where Email = '{waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[3].Value}';");
-                    Program.clientCard = new ClientCard(personData);
-                    Program.ClientDetailScreen = new ClientDetailScreen();
-                    Program.ClientDetailScreen.Show();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+
+             OpenClientDetail(waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[3].Value.ToString());
+
         }
 
         private void waitingApplicationsDataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -129,6 +150,13 @@ namespace Rental_car
             }
         }
 
+        private void waitingApplicationsDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                OpenClientDetail(waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[3].Value.ToString());
+            }
+        }
 
         private void fillToolStripButton2_Click(object sender, EventArgs e)
         {
@@ -145,20 +173,17 @@ namespace Rental_car
 
         private void searchCarWithParametrsDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex != -1)
+            var carData = DBConnection.GetResultQueryDataTable($@"Select * from car where VIN = '{searchCarWithParametrsDataGridView.Rows[selectedCarInformationRow].Cells[0].Value.ToString()}';");
+            if (carData.Rows.Count != 0)
             {
-                var carData = DBConnection.GetResultQueryDataTable($@"Select * from car where VIN = '{searchCarWithParametrsDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString()}';");
-                if (carData.Rows.Count != 0)
-                {
-                    Program.carCardMode = 1;
-                    Program.carCard = new CarCard(carData);
-                    CarCardScreen carCardScreen = new CarCardScreen();
-                    carCardScreen.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Такого автомобиля не существует в системе", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                Program.carCardMode = 1;
+                Program.carCard = new CarCard(carData);
+                CarCardScreen carCardScreen = new CarCardScreen();
+                carCardScreen.Show();
+            }
+            else
+            {
+                MessageBox.Show("Такого автомобиля не существует в системе", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -208,18 +233,18 @@ namespace Rental_car
 
         private void createDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           /* if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
+           if (CheckDocumentExsiting(getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
                 MessageBox.Show("На данную заявку уже были оформлены документы", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void openDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
+            if (CheckDocumentExsiting(getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
                 MessageBox.Show("Документы есть");
             else
-                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void toolStripMenuItemAddCar_Click(object sender, EventArgs e)
@@ -286,5 +311,49 @@ namespace Rental_car
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
+
+        private void getConfirmApplicationsDataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                getConfirmApplicationsDataGridView.ClearSelection();
+                selectedConfirmedApplicationsRow = e.RowIndex;
+                getConfirmApplicationsDataGridView.Rows[e.RowIndex].Selected = true;
+            }
+        }
+
+        private void btnUpdateAgentData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DBConnection.RunQuery($@"UPDATE agent SET 
+                                                    Email = '{txtEmail.Text}', 
+                                                    Password = '{txtPassword.Text}', 
+                                                    Surname = '{txtSurname.Text}', 
+                                                    Name = '{txtName.Text}', 
+                                                    Fathername = '{txtFathername.Text}',                                                  
+                                                    Birthday = '{dtimeBirthday.Value.ToString("yyyy-MM-dd")}',                                                             
+                                                    Contact_telephone = '{txtTelephone.Text}',
+                                                    Address = '{txtAddress.Text}'
+                                                    WHERE Agent_number = {Program.agentCard.Agent_number};");
+
+                MessageBox.Show("Ваш аккаунт успешно изменен!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Program.agentCard.Email = txtEmail.Text;
+                Program.agentCard.Password = txtPassword.Text;
+                Program.agentCard.Surname = txtSurname.Text;
+                Program.agentCard.Name = txtName.Text;
+                Program.agentCard.Fathername = txtFathername.Text;
+                Program.agentCard.Contact_telephone = txtTelephone.Text;
+                Program.agentCard.Address = txtAddress.Text;
+                Program.agentCard.Address = dtimeBirthday.Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        
     }
 }

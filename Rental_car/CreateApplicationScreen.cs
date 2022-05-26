@@ -63,7 +63,7 @@ namespace Rental_car
                                                          {rentalDays}, 
                                                          {rentalPrice}, 
                                                          DEFAULT, 
-                                                         DEFAULT,
+                                                         NULL,
                                                          NULL)");
 
                         MessageBox.Show("Заявка на прокат была добавлена в обработку!\nОжидайте ответа представителя", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,7 +100,15 @@ namespace Rental_car
 
         private bool CheckAvailability()
         {
-            return (DBConnection.GetResultQueryString($"SELECT car_rental.CheckDateStart('{dateTimePickerStartRental.Value.ToString("yyyy-MM-dd")}');") == "0");
+            try
+            {
+                return (DBConnection.GetResultQueryString($"SELECT car_rental.CheckAvaibleCarAtPreiod('{dateTimePickerStartRental.Value.ToString("yyyy-MM-dd")}', '{Program.applicationData.VIN}');") == "0");
+            }
+            catch(Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                return false;
+            }
         }
 
     }
