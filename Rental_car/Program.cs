@@ -30,7 +30,7 @@ namespace Rental_car
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(mainScreen = new EnterScreen());
+            Application.Run(mainScreen = new EnterScreen());           
         }
     }
 }

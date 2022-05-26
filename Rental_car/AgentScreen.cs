@@ -22,9 +22,18 @@ namespace Rental_car
             InitializeComponent();
         }
 
-        public bool CheckDocumentExsiting(string idApplication)
+        private bool CheckDocumentExsiting(string idApplication)
         {
             return DBConnection.GetResultQueryString($"SELECT car_rental.CheckDocumentExsisting({idApplication});") == "1";
+        }
+
+        private void DrawLateRentalCars()
+        {
+            foreach(DataGridViewRow dgvRow in rental_cars_nowDataGridView.Rows)
+            {
+                if (int.Parse(dgvRow.Cells[9].Value.ToString()) > 0)
+                    dgvRow.DefaultCellStyle.BackColor = Color.Red;
+            }
         }
 
         private void AgentScreen_Load(object sender, EventArgs e)
@@ -33,11 +42,12 @@ namespace Rental_car
             try
             {
                 this.waiting_applicationsTableAdapter.Fill(this.dBDataSet.waiting_applications);
-                this.getConfirmedApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmedApplications, new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Month, typeof(int))))), new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Year, typeof(int))))));
-                this.searchCarWithParametrsTableAdapter.Fill(this.dBDataSet.SearchCarWithParametrs, car_VINToolStripTextBox.Text, car_RegNumberToolStripTextBox.Text, car_BrandToolStripTextBox.Text, car_ModelToolStripTextBox.Text);
+                this.getConfirmedApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmedApplications, new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Month, typeof(int))))), new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Year, typeof(int)))))); //!!!!!!!!!!!!!!!!!!!
+                this.searchCarWithParametrsTableAdapter.Fill(this.dBDataSet.SearchCarWithParametrs, "", "", "", "");
                 this.getClientStatisticTableAdapter.Fill(this.dBDataSet.GetClientStatistic, new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Year, typeof(int))))));
                 this.rental_cars_nowTableAdapter.Fill(this.dBDataSet.rental_cars_now);
                 this.not_paid_invoicesTableAdapter.Fill(this.dBDataSet.not_paid_invoices);
+
 
             }
             catch (System.Exception ex)
@@ -47,7 +57,15 @@ namespace Rental_car
 
         }
 
+        private void AgentScreen_Shown(object sender, EventArgs e)
+        {
+            DrawLateRentalCars();
+        }
 
+        private void AgentScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.mainScreen.Show();
+        }
 
         private void acceptWaitingApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -83,10 +101,7 @@ namespace Rental_car
             }
         }
 
-        private void AgentScreen_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Program.mainScreen.Show();
-        }
+
 
         private void detailClientWaitingApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {         
@@ -113,7 +128,7 @@ namespace Rental_car
             }
         }
 
-        private void fillToolStripButton_Click(object sender, EventArgs e)
+        private void searchConfirmedApplicationDatefillToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -133,7 +148,7 @@ namespace Rental_car
             getConfirmedApplicationsDataGridView.DataSource = getConfirmedApplicationsBindingSource;
         }
 
-        private void fillToolStripButton1_Click_1(object sender, EventArgs e)
+        private void searchConfirmedApplicationSurnameTelephonefillToolStripButton_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -188,16 +203,21 @@ namespace Rental_car
             }
         }
 
+        private void searchCarWithParametrsDataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                searchCarWithParametrsDataGridView.ClearSelection();
+                selectedCarInformationRow = e.RowIndex;
+                searchCarWithParametrsDataGridView.Rows[e.RowIndex].Selected = true;
+            }
+        }
+
         private void RefreshCatalogueToolStripButton_Click(object sender, EventArgs e)
         {
             this.searchCarWithParametrsTableAdapter.Fill(this.dBDataSet.SearchCarWithParametrs, "", "", "", "");
         }
 
-        private void fillToolStripButton3_Click(object sender, EventArgs e)
-        {
-            
-
-        }
 
         private void not_paid_invoicesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -227,6 +247,14 @@ namespace Rental_car
 
         }
 
+        private void createDocumentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
+                MessageBox.Show("На данную заявку уже были оформлены документы", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private void openDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
@@ -235,12 +263,29 @@ namespace Rental_car
                 MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void createDocumentToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripMenuItemAddCar_Click(object sender, EventArgs e)
         {
-            if (CheckDocumentExsiting(getConfirmedApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
-                MessageBox.Show("На данную заявку уже были оформлены документы", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Program.carCardMode = 0;
+            CarCardScreen carCardScreen = new CarCardScreen();
+            carCardScreen.Show();
         }
+
+        private void toolStripMenuItemUpdateCar_Click(object sender, EventArgs e)
+        {
+            var carData = DBConnection.GetResultQueryDataTable($@"Select * from car where VIN = '{searchCarWithParametrsDataGridView.Rows[selectedCarInformationRow].Cells[0].Value.ToString()}';");
+            if (carData.Rows.Count != 0)
+            {
+                Program.carCardMode = 1;
+                Program.carCard = new CarCard(carData);
+                CarCardScreen carCardScreen = new CarCardScreen();
+                carCardScreen.Show();
+            }
+            else
+            {
+                MessageBox.Show("Такого автомобиля не существует в системе", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
     }
 }

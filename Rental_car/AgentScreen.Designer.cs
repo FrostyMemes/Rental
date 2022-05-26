@@ -44,12 +44,12 @@ namespace Rental_car
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentalperiodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.applicationcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.applicationdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receivingdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returndateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contacttelephoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.childeseatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.applicationcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStripWaitingApplicationTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.acceptWaitingApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.denyWaitingApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,19 +58,39 @@ namespace Rental_car
             this.dBDataSet = new Rental_car.DBDataSet();
             this.tabPageConfirmedApplications = new System.Windows.Forms.TabPage();
             this.getConfirmedApplicationsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStripConfirmedApplicationTable = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getConfirmedApplicationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fillToolStrip = new System.Windows.Forms.ToolStrip();
             this.app_monthToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.app_monthToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.app_yearToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.app_yearToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.fillToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.searchConfirmedApplicationDatefillToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.client_surnameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.client_surnameToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.client_telephoneToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.client_telephoneToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.fillToolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.searchConfirmedApplicationSurnameTelephonefillToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tabPageAgentCatalogue = new System.Windows.Forms.TabPage();
@@ -104,6 +124,10 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStripCarTable = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemAddCar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemUpdateCar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDeleteCar = new System.Windows.Forms.ToolStripMenuItem();
             this.searchCarWithParametrsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageRentalCars = new System.Windows.Forms.TabPage();
             this.rental_cars_nowDataGridView = new System.Windows.Forms.DataGridView();
@@ -160,9 +184,27 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn77 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.getClientStatisticBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageProfile = new System.Windows.Forms.TabPage();
-            this.contextMenuStripConfirmedApplicationTable = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.openDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbGender = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dtimeBirthday = new System.Windows.Forms.DateTimePicker();
+            this.txtTelephone = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtFathername = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSurname = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.getClientConfirmedApplicationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.waiting_applicationsTableAdapter = new Rental_car.DBDataSetTableAdapters.waiting_applicationsTableAdapter();
             this.getConfirmedApplicationsTableAdapter = new Rental_car.DBDataSetTableAdapters.GetConfirmedApplicationsTableAdapter();
@@ -173,23 +215,6 @@ namespace Rental_car
             this.getInvoiceContentTableAdapter = new Rental_car.DBDataSetTableAdapters.GetInvoiceContentTableAdapter();
             this.rental_cars_nowTableAdapter = new Rental_car.DBDataSetTableAdapters.rental_cars_nowTableAdapter();
             this.getClientStatisticTableAdapter = new Rental_car.DBDataSetTableAdapters.GetClientStatisticTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlAgentScreen.SuspendLayout();
             this.tabPageWaitingApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waitingApplicationsDataGridView)).BeginInit();
@@ -198,11 +223,13 @@ namespace Rental_car
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
             this.tabPageConfirmedApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getConfirmedApplicationsDataGridView)).BeginInit();
+            this.contextMenuStripConfirmedApplicationTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getConfirmedApplicationsBindingSource)).BeginInit();
             this.fillToolStrip.SuspendLayout();
             this.tabPageAgentCatalogue.SuspendLayout();
             this.fillToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchCarWithParametrsDataGridView)).BeginInit();
+            this.contextMenuStripCarTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchCarWithParametrsBindingSource)).BeginInit();
             this.tabPageRentalCars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rental_cars_nowDataGridView)).BeginInit();
@@ -216,7 +243,10 @@ namespace Rental_car
             this.fillToolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getClientStatisticDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getClientStatisticBindingSource)).BeginInit();
-            this.contextMenuStripConfirmedApplicationTable.SuspendLayout();
+            this.tabPageProfile.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getClientConfirmedApplicationsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -265,12 +295,12 @@ namespace Rental_car
             this.statusDataGridViewTextBoxColumn,
             this.rentalperiodDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
-            this.applicationcodeDataGridViewTextBoxColumn,
             this.applicationdateDataGridViewTextBoxColumn,
             this.receivingdateDataGridViewTextBoxColumn,
             this.returndateDataGridViewTextBoxColumn,
             this.contacttelephoneDataGridViewTextBoxColumn,
-            this.childeseatDataGridViewTextBoxColumn});
+            this.childeseatDataGridViewTextBoxColumn,
+            this.applicationcodeDataGridViewTextBoxColumn});
             this.waitingApplicationsDataGridView.ContextMenuStrip = this.contextMenuStripWaitingApplicationTable;
             this.waitingApplicationsDataGridView.DataSource = this.waiting_applicationsBindingSource;
             this.waitingApplicationsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -359,13 +389,6 @@ namespace Rental_car
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // applicationcodeDataGridViewTextBoxColumn
-            // 
-            this.applicationcodeDataGridViewTextBoxColumn.DataPropertyName = "Application_code";
-            this.applicationcodeDataGridViewTextBoxColumn.HeaderText = "Application_code";
-            this.applicationcodeDataGridViewTextBoxColumn.Name = "applicationcodeDataGridViewTextBoxColumn";
-            this.applicationcodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // applicationdateDataGridViewTextBoxColumn
             // 
             this.applicationdateDataGridViewTextBoxColumn.DataPropertyName = "Application_date";
@@ -400,6 +423,13 @@ namespace Rental_car
             this.childeseatDataGridViewTextBoxColumn.HeaderText = "Childe_seat";
             this.childeseatDataGridViewTextBoxColumn.Name = "childeseatDataGridViewTextBoxColumn";
             this.childeseatDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // applicationcodeDataGridViewTextBoxColumn
+            // 
+            this.applicationcodeDataGridViewTextBoxColumn.DataPropertyName = "Application_code";
+            this.applicationcodeDataGridViewTextBoxColumn.HeaderText = "Application_code";
+            this.applicationcodeDataGridViewTextBoxColumn.Name = "applicationcodeDataGridViewTextBoxColumn";
+            this.applicationcodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // contextMenuStripWaitingApplicationTable
             // 
@@ -489,6 +519,147 @@ namespace Rental_car
             this.getConfirmedApplicationsDataGridView.TabIndex = 0;
             this.getConfirmedApplicationsDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.getConfirmedApplicationsDataGridView_CellMouseDown);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Surname";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Surname";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Fathername";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Fathername";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Email";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Contact_telephone";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Contact_telephone";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Driver_certificate_code";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Driver_certificate_code";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Brand";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Brand";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Model";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Model";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Registration_number";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Registration_number";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Childe_seat";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Childe_seat";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Receiving_date";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Receiving_date";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Return_date";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Return_date";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Rental_period";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Rental_period";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Application_date";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Application_date";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Application_code";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Application_code";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // contextMenuStripConfirmedApplicationTable
+            // 
+            this.contextMenuStripConfirmedApplicationTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openDocumentToolStripMenuItem,
+            this.createDocumentToolStripMenuItem});
+            this.contextMenuStripConfirmedApplicationTable.Name = "contextMenuStripConfirmedApplicationTable";
+            this.contextMenuStripConfirmedApplicationTable.Size = new System.Drawing.Size(182, 48);
+            // 
+            // openDocumentToolStripMenuItem
+            // 
+            this.openDocumentToolStripMenuItem.Name = "openDocumentToolStripMenuItem";
+            this.openDocumentToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.openDocumentToolStripMenuItem.Text = "Открыть договор";
+            this.openDocumentToolStripMenuItem.Click += new System.EventHandler(this.openDocumentToolStripMenuItem_Click);
+            // 
+            // createDocumentToolStripMenuItem
+            // 
+            this.createDocumentToolStripMenuItem.Name = "createDocumentToolStripMenuItem";
+            this.createDocumentToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.createDocumentToolStripMenuItem.Text = "Оформить договор";
+            this.createDocumentToolStripMenuItem.Click += new System.EventHandler(this.createDocumentToolStripMenuItem_Click);
+            // 
             // getConfirmedApplicationsBindingSource
             // 
             this.getConfirmedApplicationsBindingSource.DataMember = "GetConfirmedApplications";
@@ -502,13 +673,13 @@ namespace Rental_car
             this.app_monthToolStripTextBox,
             this.app_yearToolStripLabel,
             this.app_yearToolStripTextBox,
-            this.fillToolStripButton,
+            this.searchConfirmedApplicationDatefillToolStripButton,
             this.toolStripSeparator1,
             this.client_surnameToolStripLabel,
             this.client_surnameToolStripTextBox,
             this.client_telephoneToolStripLabel,
             this.client_telephoneToolStripTextBox,
-            this.fillToolStripButton1,
+            this.searchConfirmedApplicationSurnameTelephonefillToolStripButton,
             this.toolStripSeparator2,
             this.refreshToolStripButton});
             this.fillToolStrip.Location = new System.Drawing.Point(3, 611);
@@ -541,13 +712,13 @@ namespace Rental_car
             this.app_yearToolStripTextBox.Name = "app_yearToolStripTextBox";
             this.app_yearToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             // 
-            // fillToolStripButton
+            // searchConfirmedApplicationDatefillToolStripButton
             // 
-            this.fillToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillToolStripButton.Name = "fillToolStripButton";
-            this.fillToolStripButton.Size = new System.Drawing.Size(88, 22);
-            this.fillToolStripButton.Text = "Найти по дате";
-            this.fillToolStripButton.Click += new System.EventHandler(this.fillToolStripButton_Click);
+            this.searchConfirmedApplicationDatefillToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchConfirmedApplicationDatefillToolStripButton.Name = "searchConfirmedApplicationDatefillToolStripButton";
+            this.searchConfirmedApplicationDatefillToolStripButton.Size = new System.Drawing.Size(88, 22);
+            this.searchConfirmedApplicationDatefillToolStripButton.Text = "Найти по дате";
+            this.searchConfirmedApplicationDatefillToolStripButton.Click += new System.EventHandler(this.searchConfirmedApplicationDatefillToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
@@ -578,13 +749,13 @@ namespace Rental_car
             this.client_telephoneToolStripTextBox.Name = "client_telephoneToolStripTextBox";
             this.client_telephoneToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             // 
-            // fillToolStripButton1
+            // searchConfirmedApplicationSurnameTelephonefillToolStripButton
             // 
-            this.fillToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillToolStripButton1.Name = "fillToolStripButton1";
-            this.fillToolStripButton1.Size = new System.Drawing.Size(109, 22);
-            this.fillToolStripButton1.Text = "Найти по клиенту";
-            this.fillToolStripButton1.Click += new System.EventHandler(this.fillToolStripButton1_Click_1);
+            this.searchConfirmedApplicationSurnameTelephonefillToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchConfirmedApplicationSurnameTelephonefillToolStripButton.Name = "searchConfirmedApplicationSurnameTelephonefillToolStripButton";
+            this.searchConfirmedApplicationSurnameTelephonefillToolStripButton.Size = new System.Drawing.Size(109, 22);
+            this.searchConfirmedApplicationSurnameTelephonefillToolStripButton.Text = "Найти по клиенту";
+            this.searchConfirmedApplicationSurnameTelephonefillToolStripButton.Click += new System.EventHandler(this.searchConfirmedApplicationSurnameTelephonefillToolStripButton_Click_1);
             // 
             // toolStripSeparator2
             // 
@@ -719,6 +890,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn36,
             this.dataGridViewTextBoxColumn37,
             this.dataGridViewTextBoxColumn38});
+            this.searchCarWithParametrsDataGridView.ContextMenuStrip = this.contextMenuStripCarTable;
             this.searchCarWithParametrsDataGridView.DataSource = this.searchCarWithParametrsBindingSource;
             this.searchCarWithParametrsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchCarWithParametrsDataGridView.Location = new System.Drawing.Point(0, 0);
@@ -728,6 +900,7 @@ namespace Rental_car
             this.searchCarWithParametrsDataGridView.Size = new System.Drawing.Size(1386, 639);
             this.searchCarWithParametrsDataGridView.TabIndex = 0;
             this.searchCarWithParametrsDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.searchCarWithParametrsDataGridView_CellMouseDoubleClick);
+            this.searchCarWithParametrsDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.searchCarWithParametrsDataGridView_CellMouseDown);
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -854,6 +1027,35 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn38.HeaderText = "Status";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             this.dataGridViewTextBoxColumn38.ReadOnly = true;
+            // 
+            // contextMenuStripCarTable
+            // 
+            this.contextMenuStripCarTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAddCar,
+            this.toolStripMenuItemUpdateCar,
+            this.toolStripMenuItemDeleteCar});
+            this.contextMenuStripCarTable.Name = "contextMenuStripCarTable";
+            this.contextMenuStripCarTable.Size = new System.Drawing.Size(199, 70);
+            // 
+            // toolStripMenuItemAddCar
+            // 
+            this.toolStripMenuItemAddCar.Name = "toolStripMenuItemAddCar";
+            this.toolStripMenuItemAddCar.Size = new System.Drawing.Size(198, 22);
+            this.toolStripMenuItemAddCar.Text = "Добавить автомобиль";
+            this.toolStripMenuItemAddCar.Click += new System.EventHandler(this.toolStripMenuItemAddCar_Click);
+            // 
+            // toolStripMenuItemUpdateCar
+            // 
+            this.toolStripMenuItemUpdateCar.Name = "toolStripMenuItemUpdateCar";
+            this.toolStripMenuItemUpdateCar.Size = new System.Drawing.Size(198, 22);
+            this.toolStripMenuItemUpdateCar.Text = "Изменить автомобиль";
+            this.toolStripMenuItemUpdateCar.Click += new System.EventHandler(this.toolStripMenuItemUpdateCar_Click);
+            // 
+            // toolStripMenuItemDeleteCar
+            // 
+            this.toolStripMenuItemDeleteCar.Name = "toolStripMenuItemDeleteCar";
+            this.toolStripMenuItemDeleteCar.Size = new System.Drawing.Size(198, 22);
+            this.toolStripMenuItemDeleteCar.Text = "Удалить автомобиль";
             // 
             // searchCarWithParametrsBindingSource
             // 
@@ -1325,6 +1527,8 @@ namespace Rental_car
             // 
             // tabPageProfile
             // 
+            this.tabPageProfile.Controls.Add(this.groupBox1);
+            this.tabPageProfile.Controls.Add(this.groupBox3);
             this.tabPageProfile.Location = new System.Drawing.Point(4, 22);
             this.tabPageProfile.Name = "tabPageProfile";
             this.tabPageProfile.Size = new System.Drawing.Size(1386, 639);
@@ -1332,27 +1536,201 @@ namespace Rental_car
             this.tabPageProfile.Text = "Профиль ";
             this.tabPageProfile.UseVisualStyleBackColor = true;
             // 
-            // contextMenuStripConfirmedApplicationTable
+            // groupBox1
             // 
-            this.contextMenuStripConfirmedApplicationTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openDocumentToolStripMenuItem,
-            this.createDocumentToolStripMenuItem});
-            this.contextMenuStripConfirmedApplicationTable.Name = "contextMenuStripConfirmedApplicationTable";
-            this.contextMenuStripConfirmedApplicationTable.Size = new System.Drawing.Size(182, 70);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.cbGender);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.dtimeBirthday);
+            this.groupBox1.Controls.Add(this.txtTelephone);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtFathername);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtSurname);
+            this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Location = new System.Drawing.Point(8, 136);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(347, 402);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Личная информация";
             // 
-            // openDocumentToolStripMenuItem
+            // groupBox2
             // 
-            this.openDocumentToolStripMenuItem.Name = "openDocumentToolStripMenuItem";
-            this.openDocumentToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.openDocumentToolStripMenuItem.Text = "Открыть договор";
-            this.openDocumentToolStripMenuItem.Click += new System.EventHandler(this.openDocumentToolStripMenuItem_Click);
+            this.groupBox2.Controls.Add(this.txtAddress);
+            this.groupBox2.Location = new System.Drawing.Point(16, 218);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(325, 159);
+            this.groupBox2.TabIndex = 38;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Адрес";
             // 
-            // createDocumentToolStripMenuItem
+            // txtAddress
             // 
-            this.createDocumentToolStripMenuItem.Name = "createDocumentToolStripMenuItem";
-            this.createDocumentToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.createDocumentToolStripMenuItem.Text = "Оформить договор";
-            this.createDocumentToolStripMenuItem.Click += new System.EventHandler(this.createDocumentToolStripMenuItem_Click);
+            this.txtAddress.Location = new System.Drawing.Point(17, 19);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(291, 121);
+            this.txtAddress.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(85, 184);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 13);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "Пол";
+            // 
+            // cbGender
+            // 
+            this.cbGender.FormattingEnabled = true;
+            this.cbGender.Items.AddRange(new object[] {
+            "М",
+            "Ж"});
+            this.cbGender.Location = new System.Drawing.Point(136, 181);
+            this.cbGender.Name = "cbGender";
+            this.cbGender.Size = new System.Drawing.Size(195, 21);
+            this.cbGender.TabIndex = 36;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(60, 159);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Телефон";
+            // 
+            // dtimeBirthday
+            // 
+            this.dtimeBirthday.Location = new System.Drawing.Point(136, 126);
+            this.dtimeBirthday.Name = "dtimeBirthday";
+            this.dtimeBirthday.Size = new System.Drawing.Size(195, 20);
+            this.dtimeBirthday.TabIndex = 34;
+            // 
+            // txtTelephone
+            // 
+            this.txtTelephone.Location = new System.Drawing.Point(136, 152);
+            this.txtTelephone.Name = "txtTelephone";
+            this.txtTelephone.Size = new System.Drawing.Size(195, 20);
+            this.txtTelephone.TabIndex = 29;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(29, 132);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(86, 13);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Дата рождения";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(60, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Отчество";
+            // 
+            // txtFathername
+            // 
+            this.txtFathername.Location = new System.Drawing.Point(136, 100);
+            this.txtFathername.Name = "txtFathername";
+            this.txtFathername.Size = new System.Drawing.Size(195, 20);
+            this.txtFathername.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(80, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Имя";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(59, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Фамилия";
+            // 
+            // txtSurname
+            // 
+            this.txtSurname.Location = new System.Drawing.Point(136, 42);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(195, 20);
+            this.txtSurname.TabIndex = 10;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(136, 70);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(195, 20);
+            this.txtName.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.txtEmail);
+            this.groupBox3.Controls.Add(this.txtPassword);
+            this.groupBox3.Location = new System.Drawing.Point(8, 18);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(347, 112);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Данные для входа";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(133, 87);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(118, 13);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "Не менее 8 символов";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(70, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Пароль";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(80, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(136, 36);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(195, 20);
+            this.txtEmail.TabIndex = 0;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(136, 64);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(195, 20);
+            this.txtPassword.TabIndex = 4;
             // 
             // getClientConfirmedApplicationsBindingSource
             // 
@@ -1404,125 +1782,6 @@ namespace Rental_car
             // 
             this.getClientStatisticTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Surname";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Surname";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Fathername";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Fathername";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Email";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Email";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Contact_telephone";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Contact_telephone";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Driver_certificate_code";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Driver_certificate_code";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Brand";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Brand";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Model";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Model";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Registration_number";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Registration_number";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Childe_seat";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Childe_seat";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Receiving_date";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Receiving_date";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Return_date";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Return_date";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Rental_period";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Rental_period";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Application_date";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Application_date";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Application_code";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Application_code";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
             // AgentScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1534,6 +1793,7 @@ namespace Rental_car
             this.Text = "Добро пожаловать";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AgentScreen_FormClosing);
             this.Load += new System.EventHandler(this.AgentScreen_Load);
+            this.Shown += new System.EventHandler(this.AgentScreen_Shown);
             this.tabControlAgentScreen.ResumeLayout(false);
             this.tabPageWaitingApplications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.waitingApplicationsDataGridView)).EndInit();
@@ -1543,6 +1803,7 @@ namespace Rental_car
             this.tabPageConfirmedApplications.ResumeLayout(false);
             this.tabPageConfirmedApplications.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getConfirmedApplicationsDataGridView)).EndInit();
+            this.contextMenuStripConfirmedApplicationTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.getConfirmedApplicationsBindingSource)).EndInit();
             this.fillToolStrip.ResumeLayout(false);
             this.fillToolStrip.PerformLayout();
@@ -1551,6 +1812,7 @@ namespace Rental_car
             this.fillToolStrip1.ResumeLayout(false);
             this.fillToolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchCarWithParametrsDataGridView)).EndInit();
+            this.contextMenuStripCarTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.searchCarWithParametrsBindingSource)).EndInit();
             this.tabPageRentalCars.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rental_cars_nowDataGridView)).EndInit();
@@ -1566,7 +1828,13 @@ namespace Rental_car
             this.fillToolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getClientStatisticDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getClientStatisticBindingSource)).EndInit();
-            this.contextMenuStripConfirmedApplicationTable.ResumeLayout(false);
+            this.tabPageProfile.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getClientConfirmedApplicationsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1591,23 +1859,6 @@ namespace Rental_car
         private System.Windows.Forms.BindingSource waiting_applicationsBindingSource;
         private DBDataSetTableAdapters.waiting_applicationsTableAdapter waiting_applicationsTableAdapter;
         private System.Windows.Forms.DataGridView waitingApplicationsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fathernameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn drivercertificatecodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn registrationnumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rentalperiodDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn applicationcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn applicationdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn receivingdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn returndateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contacttelephoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn childeseatDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tabPageAgentCatalogue;
         private System.Windows.Forms.BindingSource getConfirmedApplicationsBindingSource;
         private DBDataSetTableAdapters.GetConfirmedApplicationsTableAdapter getConfirmedApplicationsTableAdapter;
@@ -1617,7 +1868,7 @@ namespace Rental_car
         private System.Windows.Forms.ToolStripTextBox app_monthToolStripTextBox;
         private System.Windows.Forms.ToolStripLabel app_yearToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox app_yearToolStripTextBox;
-        private System.Windows.Forms.ToolStripButton fillToolStripButton;
+        private System.Windows.Forms.ToolStripButton searchConfirmedApplicationDatefillToolStripButton;
         private System.Windows.Forms.DataGridView getConfirmedApplicationsDataGridView;
         private System.Windows.Forms.BindingSource getClientConfirmedApplicationsBindingSource;
         private DBDataSetTableAdapters.GetClientConfirmedApplicationsTableAdapter getClientConfirmedApplicationsTableAdapter;
@@ -1626,7 +1877,7 @@ namespace Rental_car
         private System.Windows.Forms.ToolStripTextBox client_telephoneToolStripTextBox;
         private System.Windows.Forms.ToolStripLabel client_telephoneToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox client_surnameToolStripTextBox;
-        private System.Windows.Forms.ToolStripButton fillToolStripButton1;
+        private System.Windows.Forms.ToolStripButton searchConfirmedApplicationSurnameTelephonefillToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripConfirmedApplicationTable;
@@ -1737,5 +1988,47 @@ namespace Rental_car
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripCarTable;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddCar;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemUpdateCar;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDeleteCar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbGender;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dtimeBirthday;
+        private System.Windows.Forms.TextBox txtTelephone;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtFathername;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtSurname;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fathernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn drivercertificatecodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registrationnumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rentalperiodDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn applicationdateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receivingdateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returndateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contacttelephoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn childeseatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn applicationcodeDataGridViewTextBoxColumn;
     }
 }

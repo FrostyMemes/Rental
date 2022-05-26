@@ -109,7 +109,6 @@ namespace Rental_car
             this.cancelApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshApplicationTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getClientApplicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.client_catalogueTableAdapter = new Rental_car.DBDataSetTableAdapters.client_catalogueTableAdapter();
             this.searchCarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchCarTableAdapter = new Rental_car.DBDataSetTableAdapters.SearchCarTableAdapter();
@@ -144,7 +143,6 @@ namespace Rental_car
             this.tabControlClient.Controls.Add(this.tabPageCatalogue);
             this.tabControlClient.Controls.Add(this.tabPageProfile);
             this.tabControlClient.Controls.Add(this.tabPageApplications);
-            this.tabControlClient.Controls.Add(this.tabPage1);
             this.tabControlClient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlClient.Location = new System.Drawing.Point(0, 0);
             this.tabControlClient.Name = "tabControlClient";
@@ -852,16 +850,6 @@ namespace Rental_car
             this.getClientApplicationBindingSource.DataMember = "GetClientApplication";
             this.getClientApplicationBindingSource.DataSource = this.dBDataSet;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1117, 616);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // client_catalogueTableAdapter
             // 
             this.client_catalogueTableAdapter.ClearBeforeFill = true;
@@ -1033,6 +1021,5 @@ namespace Rental_car
         private System.Windows.Forms.DataGridViewTextBoxColumn enginepowerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vINDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TabPage tabPage1;
     }
 }

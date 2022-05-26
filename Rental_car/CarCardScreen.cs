@@ -28,7 +28,7 @@ namespace Rental_car
             comboBoxCategory.SelectedIndex = 0;
             comboBoxGearbox.SelectedIndex = 0;
             comboBoxStatus.SelectedIndex = 0;
-          
+            buttonAddOrUpdate.Text = "Добавить";
             if (Program.carCardMode == 1)
             {
                 buttonAddOrUpdate.Text = "Изменить";
@@ -85,7 +85,26 @@ namespace Rental_car
                 }
                 else
                 {
-
+                    DBConnection.RunQuery($@"INSERT INTO car SET 
+                                                    VIN = '{textBoxVIN.Text}', 
+                                                    Registration_number = '{textBoxRegNum.Text}', 
+                                                    Brand = '{textBoxBrand.Text}', 
+                                                    Model = '{textBoxModel.Text}', 
+                                                    Engine_number = '{textBoxEngineNum.Text}', 
+                                                    Engine_volume = '{textBoxEngineVolume.Text}', 
+                                                    Engine_power = '{textBoxEnginePower.Text}', 
+                                                    Body_type = '{textBoxBody.Text}', 
+                                                    Color = '{textBoxColor.Text}', 
+                                                    Category = '{comboBoxCategory.Text}',                                                 
+                                                    Registration_certificate = '{textBoxRegCertificateNum.Text}',
+                                                    Passport_series = '{textBoxPassportSeries.Text}',
+                                                    Passport_number = '{textBoxPassportNumber.Text}', 
+                                                    Owner = '{textBoxOwner.Text}', 
+                                                    Year = '{textBoxYear.Text}', 
+                                                    Gearbox = '{comboBoxGearbox.Text}',
+                                                    Price = '{textBoxPrice.Text}',
+                                                    Status = '{comboBoxStatus.Text}';");
+                    MessageBox.Show("Добавлено", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);                  
                 }
             }
             catch (Exception ex)
