@@ -1,0 +1,6 @@
+[ 
+    { "Database": "car_rental", 
+      "DataSource": "localhost", 
+      "UserID": "root", 
+      "Password": "1234", }, 
+]

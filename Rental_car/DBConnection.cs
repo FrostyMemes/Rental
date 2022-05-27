@@ -13,7 +13,7 @@ namespace Rental_car
     public static class DBConnection
     {
 
-        static private string connectionString = @"Database = car_rental; Data Source = localhost; UserID = root; Password = 1234";
+        static private string connectionString = @"Database = car_rental; DataSource = localhost; UserID = root; Password = 1234";
         static private MySqlConnection msConnection;
         static private MySqlCommand msCommand;
         static private MySqlDataAdapter msDataAdapter;

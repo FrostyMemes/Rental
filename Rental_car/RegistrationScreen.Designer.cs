@@ -111,6 +111,7 @@ namespace Rental_car
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(195, 20);
             this.txtEmail.TabIndex = 0;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtPassword
             // 
@@ -119,6 +120,7 @@ namespace Rental_car
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(195, 20);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // groupBox1
             // 
@@ -205,9 +207,11 @@ namespace Rental_car
             // txtDriveCode
             // 
             this.txtDriveCode.Location = new System.Drawing.Point(136, 250);
+            this.txtDriveCode.MaxLength = 10;
             this.txtDriveCode.Name = "txtDriveCode";
             this.txtDriveCode.Size = new System.Drawing.Size(195, 20);
             this.txtDriveCode.TabIndex = 30;
+            this.txtDriveCode.Leave += new System.EventHandler(this.txtDriveCode_Leave);
             // 
             // txtTelephone
             // 
@@ -215,6 +219,9 @@ namespace Rental_car
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(195, 20);
             this.txtTelephone.TabIndex = 29;
+            this.txtTelephone.Text = "+7";
+            this.txtTelephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelephone_KeyPress);
+            this.txtTelephone.Leave += new System.EventHandler(this.txtTelephone_Leave);
             // 
             // label11
             // 
@@ -251,6 +258,7 @@ namespace Rental_car
             this.txtPassportNumber.Size = new System.Drawing.Size(195, 20);
             this.txtPassportNumber.TabIndex = 23;
             this.txtPassportNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassportNumber_KeyPress);
+            this.txtPassportNumber.Leave += new System.EventHandler(this.txtPassportNumber_Leave);
             // 
             // label5
             // 
@@ -286,6 +294,7 @@ namespace Rental_car
             this.txtPassportSeries.Size = new System.Drawing.Size(195, 20);
             this.txtPassportSeries.TabIndex = 18;
             this.txtPassportSeries.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassportSeries_KeyPress);
+            this.txtPassportSeries.Leave += new System.EventHandler(this.txtPassportSeries_Leave);
             // 
             // label4
             // 
@@ -312,6 +321,7 @@ namespace Rental_car
             this.txtSurname.Size = new System.Drawing.Size(195, 20);
             this.txtSurname.TabIndex = 10;
             this.txtSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSurname_KeyPress);
+            this.txtSurname.Leave += new System.EventHandler(this.txtSurname_Leave);
             // 
             // txtName
             // 
@@ -320,6 +330,7 @@ namespace Rental_car
             this.txtName.Size = new System.Drawing.Size(195, 20);
             this.txtName.TabIndex = 1;
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // groupBox2
             // 
@@ -338,6 +349,7 @@ namespace Rental_car
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(312, 118);
             this.txtAddress.TabIndex = 10;
+            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // btnRegistration
             // 
@@ -359,6 +371,7 @@ namespace Rental_car
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RegistrationScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Окно регистрации";

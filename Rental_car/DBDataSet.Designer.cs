@@ -10873,6 +10873,8 @@ namespace Rental_car {
             
             private global::System.Data.DataColumn columnNameA;
             
+            private global::System.Data.DataColumn columnConfirmed_date;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public GetConfirmedClientApplicationsDataTable() {
@@ -11060,6 +11062,14 @@ namespace Rental_car {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Confirmed_dateColumn {
+                get {
+                    return this.columnConfirmed_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -11113,7 +11123,8 @@ namespace Rental_car {
                         uint Price, 
                         System.DateTime Application_date, 
                         string SurnameA, 
-                        string NameA) {
+                        string NameA, 
+                        System.DateTime Confirmed_date) {
                 GetConfirmedClientApplicationsRow rowGetConfirmedClientApplicationsRow = ((GetConfirmedClientApplicationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Surname,
@@ -11134,7 +11145,8 @@ namespace Rental_car {
                         Application_date,
                         null,
                         SurnameA,
-                        NameA};
+                        NameA,
+                        Confirmed_date};
                 rowGetConfirmedClientApplicationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetConfirmedClientApplicationsRow);
                 return rowGetConfirmedClientApplicationsRow;
@@ -11183,6 +11195,7 @@ namespace Rental_car {
                 this.columnApplication_code = base.Columns["Application_code"];
                 this.columnSurnameA = base.Columns["SurnameA"];
                 this.columnNameA = base.Columns["NameA"];
+                this.columnConfirmed_date = base.Columns["Confirmed_date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11226,6 +11239,8 @@ namespace Rental_car {
                 base.Columns.Add(this.columnSurnameA);
                 this.columnNameA = new global::System.Data.DataColumn("NameA", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNameA);
+                this.columnConfirmed_date = new global::System.Data.DataColumn("Confirmed_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConfirmed_date);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnApplication_code}, true));
                 this.columnSurname.AllowDBNull = false;
@@ -11991,6 +12006,8 @@ namespace Rental_car {
             
             private global::System.Data.DataColumn columnNameA;
             
+            private global::System.Data.DataColumn columnConfirmed_date;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public GetConfirmApplicationsDataTable() {
@@ -12178,6 +12195,14 @@ namespace Rental_car {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Confirmed_dateColumn {
+                get {
+                    return this.columnConfirmed_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -12231,7 +12256,8 @@ namespace Rental_car {
                         uint Price, 
                         System.DateTime Application_date, 
                         string SurnameA, 
-                        string NameA) {
+                        string NameA, 
+                        System.DateTime Confirmed_date) {
                 GetConfirmApplicationsRow rowGetConfirmApplicationsRow = ((GetConfirmApplicationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Surname,
@@ -12252,7 +12278,8 @@ namespace Rental_car {
                         Application_date,
                         null,
                         SurnameA,
-                        NameA};
+                        NameA,
+                        Confirmed_date};
                 rowGetConfirmApplicationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetConfirmApplicationsRow);
                 return rowGetConfirmApplicationsRow;
@@ -12301,6 +12328,7 @@ namespace Rental_car {
                 this.columnApplication_code = base.Columns["Application_code"];
                 this.columnSurnameA = base.Columns["SurnameA"];
                 this.columnNameA = base.Columns["NameA"];
+                this.columnConfirmed_date = base.Columns["Confirmed_date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12344,6 +12372,8 @@ namespace Rental_car {
                 base.Columns.Add(this.columnSurnameA);
                 this.columnNameA = new global::System.Data.DataColumn("NameA", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNameA);
+                this.columnConfirmed_date = new global::System.Data.DataColumn("Confirmed_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConfirmed_date);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnApplication_code}, true));
                 this.columnSurname.AllowDBNull = false;
@@ -16433,6 +16463,23 @@ namespace Rental_car {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime Confirmed_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableGetConfirmedClientApplications.Confirmed_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Confirmed_date\' в таблице \'GetConfirmedClientApplications\' " +
+                                "равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetConfirmedClientApplications.Confirmed_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsApplication_dateNull() {
                 return this.IsNull(this.tableGetConfirmedClientApplications.Application_dateColumn);
             }
@@ -16441,6 +16488,18 @@ namespace Rental_car {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetApplication_dateNull() {
                 this[this.tableGetConfirmedClientApplications.Application_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConfirmed_dateNull() {
+                return this.IsNull(this.tableGetConfirmedClientApplications.Confirmed_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConfirmed_dateNull() {
+                this[this.tableGetConfirmedClientApplications.Confirmed_dateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -16917,6 +16976,23 @@ namespace Rental_car {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime Confirmed_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableGetConfirmApplications.Confirmed_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Confirmed_date\' в таблице \'GetConfirmApplications\' равно DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetConfirmApplications.Confirmed_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsApplication_dateNull() {
                 return this.IsNull(this.tableGetConfirmApplications.Application_dateColumn);
             }
@@ -16925,6 +17001,18 @@ namespace Rental_car {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetApplication_dateNull() {
                 this[this.tableGetConfirmApplications.Application_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConfirmed_dateNull() {
+                return this.IsNull(this.tableGetConfirmApplications.Confirmed_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConfirmed_dateNull() {
+                this[this.tableGetConfirmApplications.Confirmed_dateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -27014,6 +27102,7 @@ namespace Rental_car.DBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Application_code", "Application_code");
             tableMapping.ColumnMappings.Add("SurnameA", "SurnameA");
             tableMapping.ColumnMappings.Add("NameA", "NameA");
+            tableMapping.ColumnMappings.Add("Confirmed_date", "Confirmed_date");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -27464,6 +27553,7 @@ namespace Rental_car.DBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Application_code", "Application_code");
             tableMapping.ColumnMappings.Add("SurnameA", "SurnameA");
             tableMapping.ColumnMappings.Add("NameA", "NameA");
+            tableMapping.ColumnMappings.Add("Confirmed_date", "Confirmed_date");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

@@ -54,7 +54,9 @@ namespace Rental_car
 
         private void AgentScreen_Load(object sender, EventArgs e)
         {
-           
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dBDataSet.GetConfirmApplications". При необходимости она может быть перемещена или удалена.
+            
+
 
             try
             {
@@ -68,6 +70,7 @@ namespace Rental_car
                 dtimeBirthday.Value     = DateTime.Parse(Program.agentCard.Birthday.ToString());
 
                 this.waiting_applicationsTableAdapter.Fill(this.dBDataSet.waiting_applications);
+                this.getConfirmApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmApplications);
                 this.getConfirmApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmApplications);
                 this.searchCarWithParametrsTableAdapter.Fill(this.dBDataSet.SearchCarWithParametrs, "", "", "", "");
                 this.getClientStatisticTableAdapter.Fill(this.dBDataSet.GetClientStatistic, new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Year, typeof(int))))));
@@ -203,7 +206,8 @@ namespace Rental_car
         }
 
 
-        private void not_paid_invoicesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void not_paid_invoicesDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {

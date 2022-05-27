@@ -77,6 +77,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn78 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn79 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn80 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.getConfirmApplicationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fillToolStrip3 = new System.Windows.Forms.ToolStrip();
             this.app_monthToolStripLabel = new System.Windows.Forms.ToolStripLabel();
@@ -184,6 +185,7 @@ namespace Rental_car
             this.getClientStatisticBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageProfile = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnUpdateAgentData = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -217,7 +219,6 @@ namespace Rental_car
             this.getConfirmedClientApplicationsTableAdapter = new Rental_car.DBDataSetTableAdapters.GetConfirmedClientApplicationsTableAdapter();
             this.getConfirmedMonthYearApplicationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getConfirmedMonthYearApplicationsTableAdapter = new Rental_car.DBDataSetTableAdapters.GetConfirmedMonthYearApplicationsTableAdapter();
-            this.btnUpdateAgentData = new System.Windows.Forms.Button();
             this.tabControlAgentScreen.SuspendLayout();
             this.tabPageWaitingApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waitingApplicationsDataGridView)).BeginInit();
@@ -286,6 +287,7 @@ namespace Rental_car
             this.waitingApplicationsDataGridView.AllowUserToAddRows = false;
             this.waitingApplicationsDataGridView.AllowUserToDeleteRows = false;
             this.waitingApplicationsDataGridView.AutoGenerateColumns = false;
+            this.waitingApplicationsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.waitingApplicationsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.waitingApplicationsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.fathernameDataGridViewTextBoxColumn,
@@ -514,8 +516,8 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn78,
-            this.dataGridViewTextBoxColumn79});
-            this.getConfirmApplicationsDataGridView.ContextMenuStrip = this.contextMenuStripConfirmedApplicationTable;
+            this.dataGridViewTextBoxColumn79,
+            this.dataGridViewTextBoxColumn80});
             this.getConfirmApplicationsDataGridView.DataSource = this.getConfirmApplicationsBindingSource;
             this.getConfirmApplicationsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.getConfirmApplicationsDataGridView.Location = new System.Drawing.Point(3, 3);
@@ -523,8 +525,7 @@ namespace Rental_car
             this.getConfirmApplicationsDataGridView.ReadOnly = true;
             this.getConfirmApplicationsDataGridView.RowHeadersVisible = false;
             this.getConfirmApplicationsDataGridView.Size = new System.Drawing.Size(1294, 539);
-            this.getConfirmApplicationsDataGridView.TabIndex = 5;
-            this.getConfirmApplicationsDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.getConfirmApplicationsDataGridView_CellMouseDown);
+            this.getConfirmApplicationsDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -658,6 +659,13 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn79.HeaderText = "NameA";
             this.dataGridViewTextBoxColumn79.Name = "dataGridViewTextBoxColumn79";
             this.dataGridViewTextBoxColumn79.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn80
+            // 
+            this.dataGridViewTextBoxColumn80.DataPropertyName = "Confirmed_date";
+            this.dataGridViewTextBoxColumn80.HeaderText = "Confirmed_date";
+            this.dataGridViewTextBoxColumn80.Name = "dataGridViewTextBoxColumn80";
+            this.dataGridViewTextBoxColumn80.ReadOnly = true;
             // 
             // getConfirmApplicationsBindingSource
             // 
@@ -898,7 +906,7 @@ namespace Rental_car
             this.searchCarWithParametrsDataGridView.Name = "searchCarWithParametrsDataGridView";
             this.searchCarWithParametrsDataGridView.ReadOnly = true;
             this.searchCarWithParametrsDataGridView.RowHeadersVisible = false;
-            this.searchCarWithParametrsDataGridView.Size = new System.Drawing.Size(1300, 570);
+            this.searchCarWithParametrsDataGridView.Size = new System.Drawing.Size(1300, 542);
             this.searchCarWithParametrsDataGridView.TabIndex = 0;
             this.searchCarWithParametrsDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.searchCarWithParametrsDataGridView_CellMouseDoubleClick);
             this.searchCarWithParametrsDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.searchCarWithParametrsDataGridView_CellMouseDown);
@@ -1267,7 +1275,7 @@ namespace Rental_car
             this.not_paid_invoicesDataGridView.RowHeadersVisible = false;
             this.not_paid_invoicesDataGridView.Size = new System.Drawing.Size(855, 574);
             this.not_paid_invoicesDataGridView.TabIndex = 0;
-            this.not_paid_invoicesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.not_paid_invoicesDataGridView_CellContentClick);
+            this.not_paid_invoicesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.not_paid_invoicesDataGridView_CellClick);
             // 
             // dataGridViewTextBoxColumn39
             // 
@@ -1563,6 +1571,16 @@ namespace Rental_car
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Личная информация";
             // 
+            // btnUpdateAgentData
+            // 
+            this.btnUpdateAgentData.Location = new System.Drawing.Point(6, 422);
+            this.btnUpdateAgentData.Name = "btnUpdateAgentData";
+            this.btnUpdateAgentData.Size = new System.Drawing.Size(325, 23);
+            this.btnUpdateAgentData.TabIndex = 39;
+            this.btnUpdateAgentData.Text = "Изменить данные";
+            this.btnUpdateAgentData.UseVisualStyleBackColor = true;
+            this.btnUpdateAgentData.Click += new System.EventHandler(this.btnUpdateAgentData_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtAddress);
@@ -1798,16 +1816,6 @@ namespace Rental_car
             // 
             this.getConfirmedMonthYearApplicationsTableAdapter.ClearBeforeFill = true;
             // 
-            // btnUpdateAgentData
-            // 
-            this.btnUpdateAgentData.Location = new System.Drawing.Point(6, 422);
-            this.btnUpdateAgentData.Name = "btnUpdateAgentData";
-            this.btnUpdateAgentData.Size = new System.Drawing.Size(325, 23);
-            this.btnUpdateAgentData.TabIndex = 39;
-            this.btnUpdateAgentData.Text = "Изменить данные";
-            this.btnUpdateAgentData.UseVisualStyleBackColor = true;
-            this.btnUpdateAgentData.Click += new System.EventHandler(this.btnUpdateAgentData_Click);
-            // 
             // AgentScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2019,18 +2027,23 @@ namespace Rental_car
         private System.Windows.Forms.DataGridViewTextBoxColumn contacttelephoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn childeseatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn applicationcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource getConfirmApplicationsBindingSource;
-        private DBDataSetTableAdapters.GetConfirmApplicationsTableAdapter getConfirmApplicationsTableAdapter;
-        private System.Windows.Forms.BindingSource getConfirmedClientApplicationsBindingSource;
-        private DBDataSetTableAdapters.GetConfirmedClientApplicationsTableAdapter getConfirmedClientApplicationsTableAdapter;
-        private System.Windows.Forms.BindingSource getConfirmedMonthYearApplicationsBindingSource;
-        private DBDataSetTableAdapters.GetConfirmedMonthYearApplicationsTableAdapter getConfirmedMonthYearApplicationsTableAdapter;
         private System.Windows.Forms.ToolStrip fillToolStrip3;
         private System.Windows.Forms.ToolStripLabel app_monthToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox app_monthToolStripTextBox;
         private System.Windows.Forms.ToolStripLabel app_yearToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox app_yearToolStripTextBox;
         private System.Windows.Forms.ToolStripButton findConfirmedApplicationMonthYearfillToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel client_surnameToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox client_surnameToolStripTextBox;
+        private System.Windows.Forms.ToolStripLabel client_telephoneToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox client_telephoneToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton findConfirmedApplicationClientfillToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton refreshConfirmedApplicationstoolStripButton;
+        private System.Windows.Forms.Button btnUpdateAgentData;
+        private System.Windows.Forms.BindingSource getConfirmApplicationsBindingSource;
+        private DBDataSetTableAdapters.GetConfirmApplicationsTableAdapter getConfirmApplicationsTableAdapter;
         private System.Windows.Forms.DataGridView getConfirmApplicationsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -2051,14 +2064,10 @@ namespace Rental_car
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn78;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn79;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel client_surnameToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox client_surnameToolStripTextBox;
-        private System.Windows.Forms.ToolStripLabel client_telephoneToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox client_telephoneToolStripTextBox;
-        private System.Windows.Forms.ToolStripButton findConfirmedApplicationClientfillToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton refreshConfirmedApplicationstoolStripButton;
-        private System.Windows.Forms.Button btnUpdateAgentData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn80;
+        private System.Windows.Forms.BindingSource getConfirmedClientApplicationsBindingSource;
+        private DBDataSetTableAdapters.GetConfirmedClientApplicationsTableAdapter getConfirmedClientApplicationsTableAdapter;
+        private System.Windows.Forms.BindingSource getConfirmedMonthYearApplicationsBindingSource;
+        private DBDataSetTableAdapters.GetConfirmedMonthYearApplicationsTableAdapter getConfirmedMonthYearApplicationsTableAdapter;
     }
 }

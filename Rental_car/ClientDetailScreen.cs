@@ -38,6 +38,7 @@ namespace Rental_car
             {
                 this.getClientApplicationForAgentTableAdapter.Fill(this.dBDataSet.GetClientApplicationForAgent, new System.Nullable<int>(((int)(System.Convert.ChangeType(Program.clientCard.Client_number, typeof(int))))));
                 this.getClientDamagedCarsTableAdapter.Fill(this.dBDataSet.GetClientDamagedCars, Program.clientCard.Passport_series, Program.clientCard.Passport_number);
+                this.getClientInvoicesTableAdapter.Fill(this.dBDataSet.GetClientInvoices, new System.Nullable<int>(((int)(System.Convert.ChangeType(Program.clientCard.Client_number, typeof(int))))));
 
             }
             catch (System.Exception ex)
@@ -46,8 +47,14 @@ namespace Rental_car
             }
 
         }
+    
 
-        
-        
+        private void getClientInvoicesDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                this.getInvoiceContentTableAdapter.Fill(this.dBDataSet.GetInvoiceContent, new System.Nullable<int>(((int)(System.Convert.ChangeType(getClientInvoicesDataGridView.Rows[e.RowIndex].Cells[0].Value, typeof(int))))));
+            }
+        }
     }
 }
