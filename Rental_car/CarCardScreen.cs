@@ -14,7 +14,7 @@ namespace Rental_car
     {
 
         List<String> categoryList   = new List<string> { "M1", "M2", "M3", "N1", "N2", "N3" };
-        List<String> statusList     = new List<string> { "Пригодно", "Требует ремонта", "Требует капитального ремонта", "Ремонту не подлежит", "Ремонтируется", "В прокате" };
+        List<String> statusList     = new List<string> { "Пригодно", "Требует ремонта", "Требует капитального ремонта", "Ремонту не подлежит", "Ремонтируется", "В прокате", "Идет осмотр" };
         List<String> gearboxList    = new List<string> { "Автомат", "Ручная" };
         string oldVIN;
 
@@ -104,7 +104,7 @@ namespace Rental_car
                                                     Gearbox = '{comboBoxGearbox.Text}',
                                                     Price = '{textBoxPrice.Text}',
                                                     Status = '{comboBoxStatus.Text}';");
-                    MessageBox.Show("Добавлено", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);                  
+                    MessageBox.Show("Добавлено", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);                       
                 }
             }
             catch (Exception ex)

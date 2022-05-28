@@ -56,7 +56,7 @@ namespace Rental_car
                         DBConnection.RunQuery($@"INSERT INTO application VALUES(NULL, 
                                                          DEFAULT, 
                                                         '{Program.clientCard.Client_number}', 
-                                                        '{Program.applicationData.VIN}', 
+                                                        '{Program.applicationCard.VIN}', 
                                                         '{comboBoxChildeSeat.Text}', 
                                                         '{dateTimePickerStartRental.Value.ToString("yyyy-MM-dd")}', 
                                                         '{dateTimePickerEndRental.Value.ToString("yyyy-MM-dd")}',  
@@ -93,7 +93,7 @@ namespace Rental_car
         private void RecalculateRentalData()
         {
             rentalDays = Math.Abs((dateTimePickerEndRental.Value - dateTimePickerStartRental.Value).Days + 1);
-            rentalPrice = rentalDays * Program.applicationData.Price;
+            rentalPrice = rentalDays * Program.applicationCard.Price;
             labelRentalDays.Text = $"Дней проката: {rentalDays}";
             labelPrice.Text = $"Итоговая сумма: {rentalPrice}";
         }
@@ -102,7 +102,7 @@ namespace Rental_car
         {
             try
             {
-                return (DBConnection.GetResultQueryString($"SELECT car_rental.CheckAvaibleCarAtPreiod('{dateTimePickerStartRental.Value.ToString("yyyy-MM-dd")}', '{Program.applicationData.VIN}');") == "0");
+                return (DBConnection.GetResultQueryString($"SELECT car_rental.CheckAvaibleCarAtPreiod('{dateTimePickerStartRental.Value.ToString("yyyy-MM-dd")}', '{Program.applicationCard.VIN}');") == "0");
             }
             catch(Exception Ex)
             {

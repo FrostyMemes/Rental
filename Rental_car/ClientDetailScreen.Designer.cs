@@ -124,6 +124,7 @@ namespace Rental_car
             this.getClientApplicationForAgentDataGridView.AllowUserToAddRows = false;
             this.getClientApplicationForAgentDataGridView.AllowUserToDeleteRows = false;
             this.getClientApplicationForAgentDataGridView.AutoGenerateColumns = false;
+            this.getClientApplicationForAgentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.getClientApplicationForAgentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.getClientApplicationForAgentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -158,63 +159,63 @@ namespace Rental_car
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Registration_number";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Registration_number";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Рег. номер";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Brand";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Brand";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Марка";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Model";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Model";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Модель";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Color";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Color";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Цвет";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Gearbox";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Gearbox";
+            this.dataGridViewTextBoxColumn6.HeaderText = "КПП";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "Receiving_date";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Receiving_date";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Дата нач. проката";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Return_date";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Return_date";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Дата оконч. проката";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "Rental_period";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Rental_period";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Кол-во дней проката";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Цена";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
@@ -224,6 +225,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn11.HeaderText = "Status";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Visible = false;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -231,6 +233,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn12.HeaderText = "Application_code";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Visible = false;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -238,6 +241,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn13.HeaderText = "Document_number";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Visible = false;
             // 
             // getClientApplicationForAgentBindingSource
             // 
@@ -417,11 +421,12 @@ namespace Rental_car
             this.panel1.Controls.Add(this.groupBoxClientApplications);
             this.panel1.Location = new System.Drawing.Point(396, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1001, 523);
+            this.panel1.Size = new System.Drawing.Size(992, 523);
             this.panel1.TabIndex = 23;
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.getClientInvoicesDataGridView);
             this.groupBox3.Controls.Add(this.getInvoiceContentDataGridView);
             this.groupBox3.Location = new System.Drawing.Point(14, 1039);
@@ -436,6 +441,7 @@ namespace Rental_car
             this.getClientInvoicesDataGridView.AllowUserToAddRows = false;
             this.getClientInvoicesDataGridView.AllowUserToDeleteRows = false;
             this.getClientInvoicesDataGridView.AutoGenerateColumns = false;
+            this.getClientInvoicesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.getClientInvoicesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.getClientInvoicesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn26,
@@ -455,35 +461,35 @@ namespace Rental_car
             // dataGridViewTextBoxColumn26
             // 
             this.dataGridViewTextBoxColumn26.DataPropertyName = "Invoice_number";
-            this.dataGridViewTextBoxColumn26.HeaderText = "Invoice_number";
+            this.dataGridViewTextBoxColumn26.HeaderText = "Номер счета";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
             this.dataGridViewTextBoxColumn26.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn27
             // 
             this.dataGridViewTextBoxColumn27.DataPropertyName = "Document_number";
-            this.dataGridViewTextBoxColumn27.HeaderText = "Document_number";
+            this.dataGridViewTextBoxColumn27.HeaderText = "Номер документа";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn28
             // 
             this.dataGridViewTextBoxColumn28.DataPropertyName = "Invoice_date";
-            this.dataGridViewTextBoxColumn28.HeaderText = "Invoice_date";
+            this.dataGridViewTextBoxColumn28.HeaderText = "Дата выдачи счета";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn29
             // 
             this.dataGridViewTextBoxColumn29.DataPropertyName = "Total_price";
-            this.dataGridViewTextBoxColumn29.HeaderText = "Total_price";
+            this.dataGridViewTextBoxColumn29.HeaderText = "Итоговая цена";
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
             this.dataGridViewTextBoxColumn29.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn30
             // 
             this.dataGridViewTextBoxColumn30.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn30.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn30.HeaderText = "Статус";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
             // 
@@ -496,7 +502,10 @@ namespace Rental_car
             // 
             this.getInvoiceContentDataGridView.AllowUserToAddRows = false;
             this.getInvoiceContentDataGridView.AllowUserToDeleteRows = false;
+            this.getInvoiceContentDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.getInvoiceContentDataGridView.AutoGenerateColumns = false;
+            this.getInvoiceContentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.getInvoiceContentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.getInvoiceContentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn22,
@@ -508,34 +517,34 @@ namespace Rental_car
             this.getInvoiceContentDataGridView.Name = "getInvoiceContentDataGridView";
             this.getInvoiceContentDataGridView.ReadOnly = true;
             this.getInvoiceContentDataGridView.RowHeadersVisible = false;
-            this.getInvoiceContentDataGridView.Size = new System.Drawing.Size(378, 487);
+            this.getInvoiceContentDataGridView.Size = new System.Drawing.Size(386, 487);
             this.getInvoiceContentDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn22
             // 
             this.dataGridViewTextBoxColumn22.DataPropertyName = "Service_name";
-            this.dataGridViewTextBoxColumn22.HeaderText = "Service_name";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Наименование услуги";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn23
             // 
             this.dataGridViewTextBoxColumn23.DataPropertyName = "Service_unit";
-            this.dataGridViewTextBoxColumn23.HeaderText = "Service_unit";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Ед. услуги";
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             this.dataGridViewTextBoxColumn23.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn24
             // 
             this.dataGridViewTextBoxColumn24.DataPropertyName = "Count";
-            this.dataGridViewTextBoxColumn24.HeaderText = "Count";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Количество";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn25.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn25.HeaderText = "Цена";
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
             // 
@@ -559,6 +568,7 @@ namespace Rental_car
             this.getClientDamagedCarsDataGridView.AllowUserToAddRows = false;
             this.getClientDamagedCarsDataGridView.AllowUserToDeleteRows = false;
             this.getClientDamagedCarsDataGridView.AutoGenerateColumns = false;
+            this.getClientDamagedCarsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.getClientDamagedCarsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.getClientDamagedCarsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn14,
@@ -587,35 +597,35 @@ namespace Rental_car
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.DataPropertyName = "Registration_number";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Registration_number";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Рег. номер";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "Brand";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Brand";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Марка";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "Model";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Model";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Модель";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "Color";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Color";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Цвет";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "Description_damage_after";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Description_damage_after";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Повреждения";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
             // 
@@ -625,11 +635,12 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn20.HeaderText = "Status";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Visible = false;
             // 
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "Document_number";
-            this.dataGridViewTextBoxColumn21.HeaderText = "Document_number";
+            this.dataGridViewTextBoxColumn21.HeaderText = "Номер договора";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
             // 
@@ -654,12 +665,13 @@ namespace Rental_car
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1420, 583);
+            this.ClientSize = new System.Drawing.Size(1411, 583);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ClientInformation);
             this.Name = "ClientDetailScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Данные о клиенте";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientDetailScreen_FormClosing);
             this.Load += new System.EventHandler(this.ClientDetailScreen_Load);
             this.groupBoxClientApplications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.getClientApplicationForAgentDataGridView)).EndInit();
@@ -704,6 +716,18 @@ namespace Rental_car
         private DBDataSetTableAdapters.GetClientApplicationForAgentTableAdapter getClientApplicationForAgentTableAdapter;
         private DBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView getClientApplicationForAgentDataGridView;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.BindingSource getClientDamagedCarsBindingSource;
+        private DBDataSetTableAdapters.GetClientDamagedCarsTableAdapter getClientDamagedCarsTableAdapter;
+        private System.Windows.Forms.DataGridView getClientDamagedCarsDataGridView;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.BindingSource getInvoiceContentBindingSource;
+        private DBDataSetTableAdapters.GetInvoiceContentTableAdapter getInvoiceContentTableAdapter;
+        private System.Windows.Forms.DataGridView getInvoiceContentDataGridView;
+        private System.Windows.Forms.BindingSource getClientInvoicesBindingSource;
+        private DBDataSetTableAdapters.GetClientInvoicesTableAdapter getClientInvoicesTableAdapter;
+        private System.Windows.Forms.DataGridView getClientInvoicesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -717,11 +741,15 @@ namespace Rental_car
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.BindingSource getClientDamagedCarsBindingSource;
-        private DBDataSetTableAdapters.GetClientDamagedCarsTableAdapter getClientDamagedCarsTableAdapter;
-        private System.Windows.Forms.DataGridView getClientDamagedCarsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
@@ -730,21 +758,5 @@ namespace Rental_car
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.BindingSource getInvoiceContentBindingSource;
-        private DBDataSetTableAdapters.GetInvoiceContentTableAdapter getInvoiceContentTableAdapter;
-        private System.Windows.Forms.DataGridView getInvoiceContentDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.BindingSource getClientInvoicesBindingSource;
-        private DBDataSetTableAdapters.GetClientInvoicesTableAdapter getClientInvoicesTableAdapter;
-        private System.Windows.Forms.DataGridView getClientInvoicesDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
     }
 }

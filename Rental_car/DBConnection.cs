@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MySql.Data;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.IO;
+
 
 namespace Rental_car
 {
@@ -17,6 +19,8 @@ namespace Rental_car
         static private MySqlConnection msConnection;
         static private MySqlCommand msCommand;
         static private MySqlDataAdapter msDataAdapter;
+
+       
 
         public static void Connect()
         {
@@ -51,5 +55,6 @@ namespace Rental_car
 
             return dataTable;
         }
+        
     }
 }

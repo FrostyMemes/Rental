@@ -364,7 +364,8 @@ namespace Rental_car
             "Требует капитального ремонта",
             "Ремонту не подлежит",
             "Ремонтируется",
-            "В прокате"});
+            "В прокате",
+            "Идет осмотр"});
             this.comboBoxStatus.Location = new System.Drawing.Point(171, 467);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(206, 21);

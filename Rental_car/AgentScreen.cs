@@ -37,19 +37,33 @@ namespace Rental_car
             }
         }
 
-        private void OpenClientDetail(string clientNymber)
+        private void OpenClientDetail(string clientEmail)
         {
             try
             {
-                var personData = DBConnection.GetResultQueryDataTable($@"Select * from client where Email = '{clientNymber}';");
+                var personData = DBConnection.GetResultQueryDataTable($@"Select * from client where Email = '{clientEmail}';");
                 Program.clientCard = new ClientCard(personData);
-                Program.ClientDetailScreen = new ClientDetailScreen();
-                Program.ClientDetailScreen.Show();
+                if (Program.clientDetailScreen == null)
+                {
+                    Program.clientDetailScreen = new ClientDetailScreen();
+                    Program.clientDetailScreen.Show();
+                }
+                else
+                {
+                    Program.clientDetailScreen.DisplayClientInformation();
+                    Program.clientDetailScreen.Activate();
+                }
+                        
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void CreateDocument()
+        {
+
         }
 
         private void AgentScreen_Load(object sender, EventArgs e)
@@ -138,8 +152,8 @@ namespace Rental_car
 
         private void detailClientWaitingApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {         
-
-             OpenClientDetail(waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[3].Value.ToString());
+            
+             OpenClientDetail(waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[4].Value.ToString());
 
         }
 
@@ -157,7 +171,7 @@ namespace Rental_car
         {
             if (e.RowIndex != -1)
             {
-                OpenClientDetail(waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[3].Value.ToString());
+                OpenClientDetail(waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[4].Value.ToString());
             }
         }
 
@@ -235,20 +249,72 @@ namespace Rental_car
 
         }
 
-        private void createDocumentToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CreateDocumentScreen()
         {
-           if (CheckDocumentExsiting(getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
-                MessageBox.Show("На данную заявку уже были оформлены документы", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                string email = getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[4].Value.ToString();
+                string regNum = getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[9].Value.ToString();
+                string idApplication = getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[19].Value.ToString();
+                Program.documentCard = new DocumentCard(idApplication, email, regNum);
+
+                if (Program.documentScreen == null)
+                {
+                    Program.documentScreen = new DocumentScreen();
+                    Program.documentScreen.Show();
+                }
+                else
+                {
+                    Program.documentScreen.DisplayDocumentInformation();
+                    Program.documentScreen.Activate();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void openDocumentToolStripMenuItem_Click(object sender, EventArgs e)
+        private void documentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CheckDocumentExsiting(getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[16].Value.ToString()))
-                MessageBox.Show("Документы есть");
-            else
-                MessageBox.Show("Документов на данную заявку оформлено не было", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CreateDocumentScreen();
+        }
+
+        private void canceltConfirmedApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CheckDocumentExsiting(getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[19].Value.ToString()))
+                {
+                    MessageBox.Show("На данную заявку уже были оформлены документы", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if (MessageBox.Show("Вы уверены, что хотите отменить подтвержденную завявку?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    DBConnection.RunQuery($@"UPDATE application SET 
+                                       Status = 'Отклонено',
+                                       Confirmed_date = DEFAULT,
+                                       Agent_number = {Program.agentCard.Agent_number}
+                                       WHERE Application_code = {getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[19].Value}");
+                    getConfirmApplicationsDataGridView.Rows.RemoveAt(selectedConfirmedApplicationsRow);
+
+                    MessageBox.Show("Заявка отклонена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void clientDetailConfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenClientDetail(getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[4].Value.ToString());
+        }
+
+        private void getConfirmApplicationsDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            CreateDocumentScreen();
         }
 
         private void toolStripMenuItemAddCar_Click(object sender, EventArgs e)
@@ -358,6 +424,6 @@ namespace Rental_car
             }
         }
 
-        
+      
     }
 }

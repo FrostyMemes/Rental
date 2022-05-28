@@ -18,12 +18,14 @@ namespace Rental_car
         public static ClientCard clientCard;
         public static AgentCard agentCard;
         public static CarCard carCard;
-        public static ApplicationCard applicationData;
+        public static ApplicationCard applicationCard;
+        public static DocumentCard documentCard;
 
         public static EnterScreen mainScreen;
         public static ClientScreen clientScreen;
         public static AgentScreen agentScreen;
-        public static ClientDetailScreen ClientDetailScreen;
+        public static ClientDetailScreen clientDetailScreen;
+        public static DocumentScreen documentScreen;
 
         [STAThread]
         static void Main()
@@ -31,6 +33,7 @@ namespace Rental_car
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(mainScreen = new EnterScreen());           
+
         }
     }
 }

@@ -44,5 +44,7 @@ namespace Rental_car
             Address                     = clientInformation.Rows[0][13].ToString();
             Registration_date           = clientInformation.Rows[0][14].ToString();
         }
+
+       
     }
 }

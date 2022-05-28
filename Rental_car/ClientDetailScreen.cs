@@ -19,20 +19,24 @@ namespace Rental_car
 
         private void ClientDetailScreen_Load(object sender, EventArgs e)
         {
-           
+            DisplayClientInformation();
+        }
+    
 
-            labelName.Text                  += Program.clientCard.Name;
-            labelFathername.Text            += Program.clientCard.Fathername;
-            labelSurname.Text               += Program.clientCard.Surname;
-            labelEmail.Text                 += Program.clientCard.Email;
-            labelTelephone.Text             += Program.clientCard.Contact_telephone;
-            labelSeriesPassport.Text        += Program.clientCard.Passport_series;
-            labelNumberPassport.Text        += Program.clientCard.Passport_number;
-            labelBirth.Text                 += Program.clientCard.Birthday;
-            labelGender.Text                += Program.clientCard.Gender;
-            labelDriverCode.Text            += Program.clientCard.Driver_certificate_code;
-            labelRegistrationDate.Text      += Program.clientCard.Registration_date;
-            txtAddress.Text                 += Program.clientCard.Address;
+        public void DisplayClientInformation()
+        {
+            labelName.Text                  = "Имя: " + Program.clientCard.Name;
+            labelFathername.Text            = "Отчество: " + Program.clientCard.Fathername;
+            labelSurname.Text               = "Фамилия: " + Program.clientCard.Surname;
+            labelEmail.Text                 = "Email: " + Program.clientCard.Email;
+            labelTelephone.Text             = "Телефон: " + Program.clientCard.Contact_telephone;
+            labelSeriesPassport.Text        = "Серия паспорта: " + Program.clientCard.Passport_series;
+            labelNumberPassport.Text        = "Номер паспорта: " + Program.clientCard.Passport_number;
+            labelBirth.Text                 = "День рождения: " + Program.clientCard.Birthday;
+            labelGender.Text                = "Пол: " + Program.clientCard.Gender;
+            labelDriverCode.Text            = "Код вод. удостоверения: " + Program.clientCard.Driver_certificate_code;
+            labelRegistrationDate.Text      = "Дата регистрации: " + Program.clientCard.Registration_date;
+            txtAddress.Text                 = "Адрес: " + Program.clientCard.Address;
 
             try
             {
@@ -45,9 +49,7 @@ namespace Rental_car
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
-
         }
-    
 
         private void getClientInvoicesDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -55,6 +57,11 @@ namespace Rental_car
             {
                 this.getInvoiceContentTableAdapter.Fill(this.dBDataSet.GetInvoiceContent, new System.Nullable<int>(((int)(System.Convert.ChangeType(getClientInvoicesDataGridView.Rows[e.RowIndex].Cells[0].Value, typeof(int))))));
             }
+        }
+
+        private void ClientDetailScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.clientDetailScreen = null;
         }
     }
 }

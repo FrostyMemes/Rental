@@ -99,11 +99,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DocumentCard.cs" />
+    <Compile Include="DocumentScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocumentScreen.Designer.cs">
+      <DependentUpon>DocumentScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnterScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EnterScreen.Designer.cs">
       <DependentUpon>EnterScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceCreatingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvoiceCreatingScreen.Designer.cs">
+      <DependentUpon>InvoiceCreatingScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateApplicationScreen.resx">
       <DependentUpon>CreateApplicationScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocumentScreen.resx">
+      <DependentUpon>DocumentScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnterScreen.resx">
       <DependentUpon>EnterScreen.cs</DependentUpon>
