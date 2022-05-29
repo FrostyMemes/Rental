@@ -46,6 +46,11 @@ namespace Rental_car
         {
             try
             {
+                if (rentalDays>45)
+                {
+                    MessageBox.Show("Максимальное количество дней проката - 45", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 if (dateTimePickerEndRental.Value<dateTimePickerStartRental.Value || dateTimePickerStartRental.Value < DateTime.Now || dateTimePickerEndRental.Value < DateTime.Now)
                 {
                     MessageBox.Show("Неверный формат даты", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);

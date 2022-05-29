@@ -28,7 +28,6 @@ namespace Rental_car
         public string FacticalRentalEnd;
         public double Tax;
         public int DaysLate;
-        public int DayPrice;
 
         public DocumentCard(string idApplication, string Email, string carRegNumber)
         {

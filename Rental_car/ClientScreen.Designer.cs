@@ -263,6 +263,7 @@ namespace Rental_car
             this.dataGridViewClientCatalogue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewClientCatalogue.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridViewClientCatalogue.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewClientCatalogue.MultiSelect = false;
             this.dataGridViewClientCatalogue.Name = "dataGridViewClientCatalogue";
             this.dataGridViewClientCatalogue.ReadOnly = true;
             this.dataGridViewClientCatalogue.RowHeadersVisible = false;
@@ -422,6 +423,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn9});
             this.getClientInvoicesDataGridView.DataSource = this.getClientInvoicesBindingSource;
             this.getClientInvoicesDataGridView.Location = new System.Drawing.Point(19, 19);
+            this.getClientInvoicesDataGridView.MultiSelect = false;
             this.getClientInvoicesDataGridView.Name = "getClientInvoicesDataGridView";
             this.getClientInvoicesDataGridView.ReadOnly = true;
             this.getClientInvoicesDataGridView.RowHeadersVisible = false;
@@ -487,6 +489,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn4});
             this.getInvoiceContentDataGridView.DataSource = this.getInvoiceContentBindingSource;
             this.getInvoiceContentDataGridView.Location = new System.Drawing.Point(19, 302);
+            this.getInvoiceContentDataGridView.MultiSelect = false;
             this.getInvoiceContentDataGridView.Name = "getInvoiceContentDataGridView";
             this.getInvoiceContentDataGridView.ReadOnly = true;
             this.getInvoiceContentDataGridView.RowHeadersVisible = false;
@@ -769,6 +772,7 @@ namespace Rental_car
             this.getClientApplicationDataGridView.DataSource = this.getClientApplicationBindingSource;
             this.getClientApplicationDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.getClientApplicationDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.getClientApplicationDataGridView.MultiSelect = false;
             this.getClientApplicationDataGridView.Name = "getClientApplicationDataGridView";
             this.getClientApplicationDataGridView.ReadOnly = true;
             this.getClientApplicationDataGridView.RowHeadersVisible = false;

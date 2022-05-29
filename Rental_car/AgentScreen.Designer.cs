@@ -362,7 +362,7 @@ namespace Rental_car
             this.cancelConfirmedApplicationToolStripMenuItem,
             this.clientDetailConfToolStripMenuItem});
             this.contextMenuStripConfirmedApplicationTable.Name = "contextMenuStripConfirmedApplicationTable";
-            this.contextMenuStripConfirmedApplicationTable.Size = new System.Drawing.Size(194, 92);
+            this.contextMenuStripConfirmedApplicationTable.Size = new System.Drawing.Size(194, 70);
             // 
             // documentToolStripMenuItem
             // 
@@ -714,6 +714,7 @@ namespace Rental_car
             this.getClientStatisticDataGridView.DataSource = this.getClientStatisticBindingSource;
             this.getClientStatisticDataGridView.GridColor = System.Drawing.SystemColors.Control;
             this.getClientStatisticDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.getClientStatisticDataGridView.MultiSelect = false;
             this.getClientStatisticDataGridView.Name = "getClientStatisticDataGridView";
             this.getClientStatisticDataGridView.ReadOnly = true;
             this.getClientStatisticDataGridView.RowHeadersVisible = false;
@@ -856,6 +857,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn52});
             this.getInvoiceContentDataGridView.DataSource = this.getInvoiceContentBindingSource;
             this.getInvoiceContentDataGridView.Location = new System.Drawing.Point(861, 0);
+            this.getInvoiceContentDataGridView.MultiSelect = false;
             this.getInvoiceContentDataGridView.Name = "getInvoiceContentDataGridView";
             this.getInvoiceContentDataGridView.ReadOnly = true;
             this.getInvoiceContentDataGridView.RowHeadersVisible = false;
@@ -914,6 +916,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn47});
             this.not_paid_invoicesDataGridView.DataSource = this.not_paid_invoicesBindingSource;
             this.not_paid_invoicesDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.not_paid_invoicesDataGridView.MultiSelect = false;
             this.not_paid_invoicesDataGridView.Name = "not_paid_invoicesDataGridView";
             this.not_paid_invoicesDataGridView.ReadOnly = true;
             this.not_paid_invoicesDataGridView.RowHeadersVisible = false;
@@ -1024,6 +1027,7 @@ namespace Rental_car
             this.rental_cars_nowDataGridView.DataSource = this.rental_cars_nowBindingSource;
             this.rental_cars_nowDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rental_cars_nowDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.rental_cars_nowDataGridView.MultiSelect = false;
             this.rental_cars_nowDataGridView.Name = "rental_cars_nowDataGridView";
             this.rental_cars_nowDataGridView.ReadOnly = true;
             this.rental_cars_nowDataGridView.RowHeadersVisible = false;
@@ -1227,6 +1231,7 @@ namespace Rental_car
             this.searchCarWithParametrsDataGridView.ContextMenuStrip = this.contextMenuStripCarTable;
             this.searchCarWithParametrsDataGridView.DataSource = this.searchCarWithParametrsBindingSource;
             this.searchCarWithParametrsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.searchCarWithParametrsDataGridView.MultiSelect = false;
             this.searchCarWithParametrsDataGridView.Name = "searchCarWithParametrsDataGridView";
             this.searchCarWithParametrsDataGridView.ReadOnly = true;
             this.searchCarWithParametrsDataGridView.RowHeadersVisible = false;
@@ -1406,6 +1411,7 @@ namespace Rental_car
             this.getConfirmApplicationsDataGridView.DataSource = this.getConfirmApplicationsBindingSource;
             this.getConfirmApplicationsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.getConfirmApplicationsDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.getConfirmApplicationsDataGridView.MultiSelect = false;
             this.getConfirmApplicationsDataGridView.Name = "getConfirmApplicationsDataGridView";
             this.getConfirmApplicationsDataGridView.ReadOnly = true;
             this.getConfirmApplicationsDataGridView.RowHeadersVisible = false;
@@ -1701,6 +1707,7 @@ namespace Rental_car
             this.waitingApplicationsDataGridView.DataSource = this.waiting_applicationsBindingSource;
             this.waitingApplicationsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.waitingApplicationsDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.waitingApplicationsDataGridView.MultiSelect = false;
             this.waitingApplicationsDataGridView.Name = "waitingApplicationsDataGridView";
             this.waitingApplicationsDataGridView.ReadOnly = true;
             this.waitingApplicationsDataGridView.RowHeadersVisible = false;

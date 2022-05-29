@@ -71,16 +71,20 @@ namespace Rental_car
             // textBoxVIN
             // 
             this.textBoxVIN.Location = new System.Drawing.Point(171, 23);
+            this.textBoxVIN.MaxLength = 17;
             this.textBoxVIN.Name = "textBoxVIN";
             this.textBoxVIN.Size = new System.Drawing.Size(206, 20);
             this.textBoxVIN.TabIndex = 0;
+            this.textBoxVIN.TextChanged += new System.EventHandler(this.textBoxVIN_TextChanged);
             // 
             // textBoxRegNum
             // 
             this.textBoxRegNum.Location = new System.Drawing.Point(171, 49);
+            this.textBoxRegNum.MaxLength = 10;
             this.textBoxRegNum.Name = "textBoxRegNum";
             this.textBoxRegNum.Size = new System.Drawing.Size(206, 20);
             this.textBoxRegNum.TabIndex = 1;
+            this.textBoxRegNum.TextChanged += new System.EventHandler(this.textBoxRegNum_TextChanged);
             // 
             // textBoxBrand
             // 
@@ -88,6 +92,7 @@ namespace Rental_car
             this.textBoxBrand.Name = "textBoxBrand";
             this.textBoxBrand.Size = new System.Drawing.Size(206, 20);
             this.textBoxBrand.TabIndex = 2;
+            this.textBoxBrand.TextChanged += new System.EventHandler(this.textBoxBrand_TextChanged);
             // 
             // textBoxModel
             // 
@@ -95,13 +100,16 @@ namespace Rental_car
             this.textBoxModel.Name = "textBoxModel";
             this.textBoxModel.Size = new System.Drawing.Size(206, 20);
             this.textBoxModel.TabIndex = 4;
+            this.textBoxModel.TextChanged += new System.EventHandler(this.textBoxModel_TextChanged);
             // 
             // textBoxEngineNum
             // 
             this.textBoxEngineNum.Location = new System.Drawing.Point(171, 127);
+            this.textBoxEngineNum.MaxLength = 12;
             this.textBoxEngineNum.Name = "textBoxEngineNum";
             this.textBoxEngineNum.Size = new System.Drawing.Size(206, 20);
             this.textBoxEngineNum.TabIndex = 5;
+            this.textBoxEngineNum.TextChanged += new System.EventHandler(this.textBoxEngineNum_TextChanged);
             // 
             // textBoxEnginePower
             // 
@@ -109,6 +117,8 @@ namespace Rental_car
             this.textBoxEnginePower.Name = "textBoxEnginePower";
             this.textBoxEnginePower.Size = new System.Drawing.Size(206, 20);
             this.textBoxEnginePower.TabIndex = 6;
+            this.textBoxEnginePower.TextChanged += new System.EventHandler(this.textBoxEnginePower_TextChanged);
+            this.textBoxEnginePower.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxEnginePower_KeyPress);
             // 
             // textBoxBody
             // 
@@ -116,6 +126,7 @@ namespace Rental_car
             this.textBoxBody.Name = "textBoxBody";
             this.textBoxBody.Size = new System.Drawing.Size(206, 20);
             this.textBoxBody.TabIndex = 7;
+            this.textBoxBody.TextChanged += new System.EventHandler(this.textBoxBody_TextChanged);
             // 
             // textBoxColor
             // 
@@ -123,27 +134,37 @@ namespace Rental_car
             this.textBoxColor.Name = "textBoxColor";
             this.textBoxColor.Size = new System.Drawing.Size(206, 20);
             this.textBoxColor.TabIndex = 8;
+            this.textBoxColor.TextChanged += new System.EventHandler(this.textBoxColor_TextChanged);
+            this.textBoxColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxColor_KeyPress);
             // 
             // textBoxRegCertificateNum
             // 
             this.textBoxRegCertificateNum.Location = new System.Drawing.Point(171, 285);
+            this.textBoxRegCertificateNum.MaxLength = 10;
             this.textBoxRegCertificateNum.Name = "textBoxRegCertificateNum";
             this.textBoxRegCertificateNum.Size = new System.Drawing.Size(206, 20);
             this.textBoxRegCertificateNum.TabIndex = 10;
+            this.textBoxRegCertificateNum.TextChanged += new System.EventHandler(this.textBoxRegCertificateNum_TextChanged);
+            this.textBoxRegCertificateNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRegCertificateNum_KeyPress);
             // 
             // textBoxPassportSeries
             // 
             this.textBoxPassportSeries.Location = new System.Drawing.Point(171, 311);
+            this.textBoxPassportSeries.MaxLength = 4;
             this.textBoxPassportSeries.Name = "textBoxPassportSeries";
             this.textBoxPassportSeries.Size = new System.Drawing.Size(206, 20);
             this.textBoxPassportSeries.TabIndex = 11;
+            this.textBoxPassportSeries.TextChanged += new System.EventHandler(this.textBoxPassportSeries_TextChanged);
             // 
             // textBoxYear
             // 
             this.textBoxYear.Location = new System.Drawing.Point(171, 389);
+            this.textBoxYear.MaxLength = 4;
             this.textBoxYear.Name = "textBoxYear";
             this.textBoxYear.Size = new System.Drawing.Size(206, 20);
             this.textBoxYear.TabIndex = 13;
+            this.textBoxYear.TextChanged += new System.EventHandler(this.textBoxYear_TextChanged);
+            this.textBoxYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxYear_KeyPress);
             // 
             // textBoxOwner
             // 
@@ -151,13 +172,17 @@ namespace Rental_car
             this.textBoxOwner.Name = "textBoxOwner";
             this.textBoxOwner.Size = new System.Drawing.Size(206, 20);
             this.textBoxOwner.TabIndex = 14;
+            this.textBoxOwner.TextChanged += new System.EventHandler(this.textBoxOwner_TextChanged);
             // 
             // textBoxPassportNumber
             // 
             this.textBoxPassportNumber.Location = new System.Drawing.Point(171, 337);
+            this.textBoxPassportNumber.MaxLength = 6;
             this.textBoxPassportNumber.Name = "textBoxPassportNumber";
             this.textBoxPassportNumber.Size = new System.Drawing.Size(206, 20);
             this.textBoxPassportNumber.TabIndex = 15;
+            this.textBoxPassportNumber.TextChanged += new System.EventHandler(this.textBoxPassportNumber_TextChanged);
+            this.textBoxPassportNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPassportNumber_KeyPress);
             // 
             // label1
             // 
@@ -309,6 +334,8 @@ namespace Rental_car
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(206, 20);
             this.textBoxPrice.TabIndex = 32;
+            this.textBoxPrice.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+            this.textBoxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPrice_KeyPress);
             // 
             // label17
             // 
@@ -343,6 +370,7 @@ namespace Rental_car
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(206, 21);
             this.comboBoxCategory.TabIndex = 37;
+            this.comboBoxCategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxCategory_KeyPress);
             // 
             // comboBoxGearbox
             // 
@@ -354,6 +382,7 @@ namespace Rental_car
             this.comboBoxGearbox.Name = "comboBoxGearbox";
             this.comboBoxGearbox.Size = new System.Drawing.Size(206, 21);
             this.comboBoxGearbox.TabIndex = 38;
+            this.comboBoxGearbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxGearbox_KeyPress);
             // 
             // comboBoxStatus
             // 
@@ -370,6 +399,7 @@ namespace Rental_car
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(206, 21);
             this.comboBoxStatus.TabIndex = 39;
+            this.comboBoxStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxStatus_KeyPress);
             // 
             // label18
             // 
@@ -386,6 +416,8 @@ namespace Rental_car
             this.textBoxEngineVolume.Name = "textBoxEngineVolume";
             this.textBoxEngineVolume.Size = new System.Drawing.Size(206, 20);
             this.textBoxEngineVolume.TabIndex = 40;
+            this.textBoxEngineVolume.TextChanged += new System.EventHandler(this.textBoxEngineVolume_TextChanged);
+            this.textBoxEngineVolume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxEngineVolume_KeyPress);
             // 
             // CarCardScreen
             // 

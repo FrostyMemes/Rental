@@ -28,3 +28,5 @@ D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.CreateAp
 D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.ClientDetailScreen.resources
 D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.CarCardScreen.resources
 D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.DocumentScreen.resources
+D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.InvoiceCreatingScreen.resources
+D:\Projects\C Sharp Projects\Rental_car\Rental_car\obj\Debug\Rental_car.csproj.ResolveComReference.cache

@@ -108,6 +108,17 @@ namespace Rental_car
         private void AgentScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
             Program.mainScreen.Show();
+            if (Program.clientDetailScreen != null)
+            {
+                Program.clientDetailScreen.Close();
+                Program.clientDetailScreen = null;
+            }
+            if (Program.documentScreen != null)
+            {
+                Program.documentScreen.Close();
+                Program.documentScreen = null;
+            }
+
         }
 
         private void acceptWaitingApplicationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -216,7 +227,14 @@ namespace Rental_car
 
         private void RefreshCatalogueToolStripButton_Click(object sender, EventArgs e)
         {
-            this.searchCarWithParametrsTableAdapter.Fill(this.dBDataSet.SearchCarWithParametrs, "", "", "", "");
+            try
+            {
+                this.searchCarWithParametrsTableAdapter.Fill(this.dBDataSet.SearchCarWithParametrs, "", "", "", "");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 

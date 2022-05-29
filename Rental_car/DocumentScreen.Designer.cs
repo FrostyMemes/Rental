@@ -254,7 +254,8 @@ namespace Rental_car
             "Требует капитального ремонта",
             "Ремонту не подлежит",
             "Ремонтируется",
-            "В прокате"});
+            "В прокате",
+            "Идет осмотр"});
             this.comboBoxStatus.Location = new System.Drawing.Point(174, 457);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(206, 21);
@@ -807,6 +808,7 @@ namespace Rental_car
             this.buttonUpdateDamageStatus.TabIndex = 10;
             this.buttonUpdateDamageStatus.Text = "Занести изменения тех. осмотра";
             this.buttonUpdateDamageStatus.UseVisualStyleBackColor = true;
+            this.buttonUpdateDamageStatus.Click += new System.EventHandler(this.buttonUpdateDamageStatus_Click);
             // 
             // buttonExportDocument
             // 
@@ -828,6 +830,7 @@ namespace Rental_car
             this.buttonConfirmRentalCarReturn.TabIndex = 8;
             this.buttonConfirmRentalCarReturn.Text = "Подтвердить возврат автомобиля";
             this.buttonConfirmRentalCarReturn.UseVisualStyleBackColor = true;
+            this.buttonConfirmRentalCarReturn.Click += new System.EventHandler(this.buttonConfirmRentalCarReturn_Click);
             // 
             // groupBoxDamageDescriptionPanel
             // 
@@ -861,11 +864,12 @@ namespace Rental_car
             this.buttonInvoice.TabIndex = 13;
             this.buttonInvoice.Text = "Показать счета";
             this.buttonInvoice.UseVisualStyleBackColor = true;
+            this.buttonInvoice.Click += new System.EventHandler(this.buttonInvoice_Click);
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(398, 26);
+            this.label30.Location = new System.Drawing.Point(380, 26);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(205, 13);
             this.label30.TabIndex = 14;
@@ -972,7 +976,7 @@ namespace Rental_car
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(398, 82);
+            this.label34.Location = new System.Drawing.Point(380, 82);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(64, 13);
             this.label34.TabIndex = 20;
@@ -981,7 +985,7 @@ namespace Rental_car
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(398, 54);
+            this.label33.Location = new System.Drawing.Point(380, 54);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(93, 13);
             this.label33.TabIndex = 19;
@@ -1135,7 +1139,6 @@ namespace Rental_car
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label labelRentalPrice;
         private System.Windows.Forms.Label labelCountDays;
         private System.Windows.Forms.Label labelDateEndRental;
         private System.Windows.Forms.Label labelDateStartRental;
@@ -1144,9 +1147,10 @@ namespace Rental_car
         private System.Windows.Forms.Label labelTaxForLate;
         private System.Windows.Forms.Label labelLateRentalDays;
         private System.Windows.Forms.Label labelFactRentalEnd;
-        private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Panel panel1;
         private DBDataSet dbDataSet1;
+        private System.Windows.Forms.Label labelRentalPrice;
+        private System.Windows.Forms.Label label34;
     }
 }

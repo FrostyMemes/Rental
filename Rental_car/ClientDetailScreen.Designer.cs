@@ -142,6 +142,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn13});
             this.getClientApplicationForAgentDataGridView.DataSource = this.getClientApplicationForAgentBindingSource;
             this.getClientApplicationForAgentDataGridView.Location = new System.Drawing.Point(15, 33);
+            this.getClientApplicationForAgentDataGridView.MultiSelect = false;
             this.getClientApplicationForAgentDataGridView.Name = "getClientApplicationForAgentDataGridView";
             this.getClientApplicationForAgentDataGridView.ReadOnly = true;
             this.getClientApplicationForAgentDataGridView.RowHeadersVisible = false;
@@ -429,7 +430,7 @@ namespace Rental_car
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.getClientInvoicesDataGridView);
             this.groupBox3.Controls.Add(this.getInvoiceContentDataGridView);
-            this.groupBox3.Location = new System.Drawing.Point(14, 1039);
+            this.groupBox3.Location = new System.Drawing.Point(-3, 1039);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(948, 530);
             this.groupBox3.TabIndex = 23;
@@ -451,6 +452,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn30});
             this.getClientInvoicesDataGridView.DataSource = this.getClientInvoicesBindingSource;
             this.getClientInvoicesDataGridView.Location = new System.Drawing.Point(15, 25);
+            this.getClientInvoicesDataGridView.MultiSelect = false;
             this.getClientInvoicesDataGridView.Name = "getClientInvoicesDataGridView";
             this.getClientInvoicesDataGridView.ReadOnly = true;
             this.getClientInvoicesDataGridView.RowHeadersVisible = false;
@@ -514,6 +516,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn25});
             this.getInvoiceContentDataGridView.DataSource = this.getInvoiceContentBindingSource;
             this.getInvoiceContentDataGridView.Location = new System.Drawing.Point(546, 25);
+            this.getInvoiceContentDataGridView.MultiSelect = false;
             this.getInvoiceContentDataGridView.Name = "getInvoiceContentDataGridView";
             this.getInvoiceContentDataGridView.ReadOnly = true;
             this.getInvoiceContentDataGridView.RowHeadersVisible = false;
@@ -581,6 +584,7 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn21});
             this.getClientDamagedCarsDataGridView.DataSource = this.getClientDamagedCarsBindingSource;
             this.getClientDamagedCarsDataGridView.Location = new System.Drawing.Point(15, 24);
+            this.getClientDamagedCarsDataGridView.MultiSelect = false;
             this.getClientDamagedCarsDataGridView.Name = "getClientDamagedCarsDataGridView";
             this.getClientDamagedCarsDataGridView.ReadOnly = true;
             this.getClientDamagedCarsDataGridView.RowHeadersVisible = false;
