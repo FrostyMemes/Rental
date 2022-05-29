@@ -173,6 +173,7 @@ namespace Rental_car
                 string invoiceNum = selectedRow.Cells[0].Value.ToString();
                 string documentNum = selectedRow.Cells[1].Value.ToString();
                 DateTime dateInvoice = DateTime.Parse(selectedRow.Cells[2].Value.ToString());
+                DateTime dateInvoiceWithTime = DateTime.Parse(selectedRow.Cells[2].Value.ToString());
                 string address = selectedRow.Cells[3].Value.ToString();
                 string TIN = selectedRow.Cells[4].Value.ToString();
                 string RVC = selectedRow.Cells[5].Value.ToString();
@@ -254,6 +255,21 @@ namespace Rental_car
             DataGridViewRow selectedRow = getDocumentInvoicesDataGridView.SelectedRows[0];
             this.getInvoiceContentForAgentTableAdapter.Fill(this.dBDataSet.GetInvoiceContentForAgent, new System.Nullable<int>(((int)(System.Convert.ChangeType(selectedRow.Cells[0].Value.ToString(), typeof(int))))));
 
+        }
+
+        private void buttonConfirmPayment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (getDocumentInvoicesDataGridView.SelectedRows.Count == 0)
+                    return;
+
+                DataGridViewRow selectedRow = getDocumentInvoicesDataGridView.SelectedRows[0];
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

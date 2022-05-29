@@ -442,6 +442,29 @@ namespace Rental_car
             }
         }
 
-      
+        private void refreshWaitingApplicationTableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.waiting_applicationsTableAdapter.Fill(this.dBDataSet.waiting_applications);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cancelAllUnderDateWaitingApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DBConnection.RunQuery($@"UPDATE application SET Status='Отклонено' WHERE Status = 'Ожидается' AND Receiving_date <= NOW();");
+                this.waiting_applicationsTableAdapter.Fill(this.dBDataSet.waiting_applications);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

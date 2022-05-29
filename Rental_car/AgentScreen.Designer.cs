@@ -220,6 +220,8 @@ namespace Rental_car
             this.childeseatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.applicationcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlAgentScreen = new System.Windows.Forms.TabControl();
+            this.refreshWaitingApplicationTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelAllUnderDateWaitingApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripWaitingApplicationTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waiting_applicationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -261,28 +263,30 @@ namespace Rental_car
             this.contextMenuStripWaitingApplicationTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.acceptWaitingApplicationToolStripMenuItem,
             this.denyWaitingApplicationToolStripMenuItem,
-            this.detailClientWaitingApplicationToolStripMenuItem});
+            this.detailClientWaitingApplicationToolStripMenuItem,
+            this.refreshWaitingApplicationTableToolStripMenuItem,
+            this.cancelAllUnderDateWaitingApplicationsToolStripMenuItem});
             this.contextMenuStripWaitingApplicationTable.Name = "contextMenuStripWaitingApplicationTable";
-            this.contextMenuStripWaitingApplicationTable.Size = new System.Drawing.Size(194, 70);
+            this.contextMenuStripWaitingApplicationTable.Size = new System.Drawing.Size(275, 136);
             // 
             // acceptWaitingApplicationToolStripMenuItem
             // 
             this.acceptWaitingApplicationToolStripMenuItem.Name = "acceptWaitingApplicationToolStripMenuItem";
-            this.acceptWaitingApplicationToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.acceptWaitingApplicationToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
             this.acceptWaitingApplicationToolStripMenuItem.Text = "Подтвердить заявку";
             this.acceptWaitingApplicationToolStripMenuItem.Click += new System.EventHandler(this.acceptWaitingApplicationToolStripMenuItem_Click);
             // 
             // denyWaitingApplicationToolStripMenuItem
             // 
             this.denyWaitingApplicationToolStripMenuItem.Name = "denyWaitingApplicationToolStripMenuItem";
-            this.denyWaitingApplicationToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.denyWaitingApplicationToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
             this.denyWaitingApplicationToolStripMenuItem.Text = "Отклонить заявку";
             this.denyWaitingApplicationToolStripMenuItem.Click += new System.EventHandler(this.denyWaitingApplicationToolStripMenuItem_Click);
             // 
             // detailClientWaitingApplicationToolStripMenuItem
             // 
             this.detailClientWaitingApplicationToolStripMenuItem.Name = "detailClientWaitingApplicationToolStripMenuItem";
-            this.detailClientWaitingApplicationToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.detailClientWaitingApplicationToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
             this.detailClientWaitingApplicationToolStripMenuItem.Text = "Подробнее о клиенте";
             this.detailClientWaitingApplicationToolStripMenuItem.Click += new System.EventHandler(this.detailClientWaitingApplicationToolStripMenuItem_Click);
             // 
@@ -1556,10 +1560,9 @@ namespace Rental_car
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "Application_code";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Application_code";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Код заявки";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Visible = false;
             // 
             // fillToolStrip3
             // 
@@ -1852,6 +1855,20 @@ namespace Rental_car
             this.tabControlAgentScreen.Size = new System.Drawing.Size(1308, 624);
             this.tabControlAgentScreen.TabIndex = 0;
             // 
+            // refreshWaitingApplicationTableToolStripMenuItem
+            // 
+            this.refreshWaitingApplicationTableToolStripMenuItem.Name = "refreshWaitingApplicationTableToolStripMenuItem";
+            this.refreshWaitingApplicationTableToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
+            this.refreshWaitingApplicationTableToolStripMenuItem.Text = "Обновить таблицу";
+            this.refreshWaitingApplicationTableToolStripMenuItem.Click += new System.EventHandler(this.refreshWaitingApplicationTableToolStripMenuItem_Click);
+            // 
+            // cancelAllUnderDateWaitingApplicationsToolStripMenuItem
+            // 
+            this.cancelAllUnderDateWaitingApplicationsToolStripMenuItem.Name = "cancelAllUnderDateWaitingApplicationsToolStripMenuItem";
+            this.cancelAllUnderDateWaitingApplicationsToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
+            this.cancelAllUnderDateWaitingApplicationsToolStripMenuItem.Text = "Отменить все просроченные заявки";
+            this.cancelAllUnderDateWaitingApplicationsToolStripMenuItem.Click += new System.EventHandler(this.cancelAllUnderDateWaitingApplicationsToolStripMenuItem_Click);
+            // 
             // AgentScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2054,26 +2071,6 @@ namespace Rental_car
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn78;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn79;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn80;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn50;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
@@ -2105,5 +2102,27 @@ namespace Rental_car
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn77;
         private System.Windows.Forms.ToolStripMenuItem cancelConfirmedApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientDetailConfToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn78;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn79;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn80;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.ToolStripMenuItem refreshWaitingApplicationTableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelAllUnderDateWaitingApplicationsToolStripMenuItem;
     }
 }

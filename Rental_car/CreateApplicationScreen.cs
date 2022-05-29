@@ -97,7 +97,7 @@ namespace Rental_car
 
         private void RecalculateRentalData()
         {
-            rentalDays = Math.Abs((dateTimePickerEndRental.Value - dateTimePickerStartRental.Value).Days + 1);
+            rentalDays = Math.Abs((dateTimePickerEndRental.Value - dateTimePickerStartRental.Value).Days);
             rentalPrice = rentalDays * Program.applicationCard.Price;
             labelRentalDays.Text = $"Дней проката: {rentalDays}";
             labelPrice.Text = $"Итоговая сумма: {rentalPrice}";
