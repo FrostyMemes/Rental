@@ -172,7 +172,11 @@ namespace Rental_car
 
         private void ClientScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Program.mainScreen.Show();
+          if (Program.createApplicationScreen!=null)
+          {
+                Program.createApplicationScreen.Close();
+          }
+          Program.mainScreen.Show();
         }
 
 
@@ -230,12 +234,22 @@ namespace Rental_car
         {
             if (e.Button == MouseButtons.Left)
             {
-                string vin = dataGridViewClientCatalogue.Rows[e.RowIndex].Cells[9].Value.ToString();
-                int price = int.Parse(dataGridViewClientCatalogue.Rows[e.RowIndex].Cells[8].Value.ToString());
-                Program.applicationCard = new ApplicationCard(vin, price);
+                if (e.RowIndex != -1)
+                {
+                    string vin = dataGridViewClientCatalogue.Rows[e.RowIndex].Cells[9].Value.ToString();
+                    int price = int.Parse(dataGridViewClientCatalogue.Rows[e.RowIndex].Cells[8].Value.ToString());
+                    Program.applicationCard = new ApplicationCard(vin, price);
 
-                var createApplicationForm = new CreateApplicationScreen();
-                createApplicationForm.Show();
+                    if (Program.createApplicationScreen != null)
+                    {
+                        Program.createApplicationScreen.Activate();
+                    }
+                    else
+                    {
+                        Program.createApplicationScreen = new CreateApplicationScreen();
+                        Program.createApplicationScreen.Show();
+                    }
+                }
             }
         }
 

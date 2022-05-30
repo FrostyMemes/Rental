@@ -27,6 +27,7 @@ namespace Rental_car
         public static ClientDetailScreen clientDetailScreen;
         public static DocumentScreen documentScreen;
         public static InvoiceCreatingScreen invoiceCreatingScreen;
+        public static CreateApplicationScreen createApplicationScreen;
 
         [STAThread]
         static void Main()

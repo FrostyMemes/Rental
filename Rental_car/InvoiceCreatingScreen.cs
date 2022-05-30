@@ -92,11 +92,19 @@ namespace Rental_car
             try
             {
                 this.getDocumentInvoicesTableAdapter.Fill(this.dBDataSet.GetDocumentInvoices, new System.Nullable<int>(((int)(System.Convert.ChangeType(Program.documentCard.idDocument, typeof(int))))));
+
+                if (getDocumentInvoicesDataGridView.SelectedRows.Count == 0)
+                    return;
+
+                DataGridViewRow selectedRow = getDocumentInvoicesDataGridView.SelectedRows[0];
+                this.getInvoiceContentForAgentTableAdapter.Fill(this.dBDataSet.GetInvoiceContentForAgent, new System.Nullable<int>(((int)(System.Convert.ChangeType(selectedRow.Cells[0].Value.ToString(), typeof(int))))));
+
             }
             catch (System.Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+            
         }
 
         private void getDocumentInvoicesDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -170,20 +178,25 @@ namespace Rental_car
                     return;
 
                 DataGridViewRow selectedRow = getDocumentInvoicesDataGridView.SelectedRows[0];
-                string invoiceNum = selectedRow.Cells[0].Value.ToString();
-                string documentNum = selectedRow.Cells[1].Value.ToString();
-                DateTime dateInvoice = DateTime.Parse(selectedRow.Cells[2].Value.ToString());
-                DateTime dateInvoiceWithTime = DateTime.Parse(selectedRow.Cells[2].Value.ToString());
-                string address = selectedRow.Cells[3].Value.ToString();
-                string TIN = selectedRow.Cells[4].Value.ToString();
-                string RVC = selectedRow.Cells[5].Value.ToString();
-                string BIC = selectedRow.Cells[6].Value.ToString();
-                string VAT = selectedRow.Cells[7].Value.ToString();
+
+                var invoice_information = DBConnection.GetResultQueryDataTable($@"SELECT * FROM invoice WHERE Invoice_number = {selectedRow.Cells[0].Value.ToString()}");
+                var invoice_content_information = DBConnection.GetResultQueryDataTable($@"SELECT * FROM invoice_content WHERE Invoice_number = {selectedRow.Cells[0].Value.ToString()}");
+                string invoiceNum = invoice_information.Rows[0][0].ToString(); 
+                string documentNum = invoice_information.Rows[0][1].ToString();
+                DateTime dateInvoice = DateTime.Parse(invoice_information.Rows[0][2].ToString());                
+                string address = invoice_information.Rows[0][3].ToString();
+                string TIN = invoice_information.Rows[0][4].ToString();
+                string RVC = invoice_information.Rows[0][5].ToString();
+                string BIC = invoice_information.Rows[0][6].ToString();
+                string VAT = invoice_information.Rows[0][7].ToString();
+                string totalPrice = invoice_information.Rows[0][10].ToString();
+                int startInvoiceContentIndex = 8;
+
 
                 documentNum = new string('0', 10 - documentNum.Length) + documentNum;
                 invoiceNum = new string('0', 7 - invoiceNum.Length) + invoiceNum;
 
-                string fileName = $@"Счет {invoiceNum}.{documentNum}.{dateInvoice.ToString("dd.MM.yyyy")}";
+                string invoiceFullNumber = $@"{invoiceNum}.{documentNum}";
 
                 Excel.Application excelApplication = new Excel.Application();
 
@@ -230,7 +243,156 @@ namespace Rental_car
                 sheet.get_Range("A1", "A3").Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
 
 
-                // workBook.SaveAs(fileName);
+                range = (Excel.Range)sheet.get_Range("B1", "F1").Cells;
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                range.Merge(Type.Missing);
+                range = (Excel.Range)sheet.get_Range("B2", "F2").Cells;
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                range.Merge(Type.Missing);
+                range = (Excel.Range)sheet.get_Range("B3", "F3").Cells;
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                range.Merge(Type.Missing);
+
+                sheet.Cells[1, 7] = $@"Адрес: {address}";
+                range = (Excel.Range)sheet.get_Range("G1", "I3").Cells;
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                range.Merge(Type.Missing);
+
+                sheet.Cells[5, 1] = $@"Счет № {invoiceFullNumber} от {dateInvoice.ToString("dd MMMM yyyy")} г.";
+                range = (Excel.Range)sheet.get_Range("A5", "I5").Cells;
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
+                range.Borders[Excel.XlBordersIndex.xlEdgeBottom].Weight = Excel.XlBorderWeight.xlThick;
+                range.Font.Bold = true;
+                range.Merge(Type.Missing);
+         
+
+                sheet.Cells[startInvoiceContentIndex - 1, 1] = "№";
+                range = (Excel.Range) sheet.Range[sheet.Cells[startInvoiceContentIndex - 1, 1], sheet.Cells[startInvoiceContentIndex - 1, 1]];
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                
+
+                sheet.Cells[startInvoiceContentIndex - 1, 2] = "Товары (работы, услуги)";
+                range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex - 1, 2], sheet.Cells[startInvoiceContentIndex - 1, 4]];
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);              
+                range.Merge(Type.Missing);
+
+                sheet.Cells[startInvoiceContentIndex - 1, 5] = "Ед.";
+                range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex - 1, 5], sheet.Cells[startInvoiceContentIndex - 1, 5]];
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                ;
+
+                sheet.Cells[startInvoiceContentIndex - 1, 6] = "Кол-во";
+                range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex - 1, 6], sheet.Cells[startInvoiceContentIndex - 1, 6]];
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                
+
+                sheet.Cells[startInvoiceContentIndex - 1, 7] = "Цена";
+                range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex - 1, 7], sheet.Cells[startInvoiceContentIndex - 1, 7]];
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+
+
+                sheet.Cells[startInvoiceContentIndex - 1, 8] = "Сумма";
+                range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex - 1, 8], sheet.Cells[startInvoiceContentIndex - 1, 9]];
+                range.HorizontalAlignment = Excel.Constants.xlLeft;
+                range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                range.Merge(Type.Missing);
+
+                int sum = 0;
+
+                for (int i = 0; i != invoice_content_information.Rows.Count; i++)
+                {
+                    sheet.Cells[startInvoiceContentIndex +i, 1] = (i+1).ToString();
+                    range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex + i, 1], sheet.Cells[startInvoiceContentIndex + i, 1]];
+                    range.HorizontalAlignment = Excel.Constants.xlLeft;
+                    range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+
+
+                    sheet.Cells[startInvoiceContentIndex + i, 2] = invoice_content_information.Rows[i][2].ToString();
+                    range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex + i, 2], sheet.Cells[startInvoiceContentIndex + i, 4]];
+                    range.HorizontalAlignment = Excel.Constants.xlLeft;
+                    range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                    range.Merge(Type.Missing);
+
+                    sheet.Cells[startInvoiceContentIndex + i, 5] = invoice_content_information.Rows[i][3].ToString();
+                    range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex + i, 5], sheet.Cells[startInvoiceContentIndex + i, 5]];
+                    range.HorizontalAlignment = Excel.Constants.xlLeft;
+                    range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                    
+
+                    sheet.Cells[startInvoiceContentIndex + i, 6] = invoice_content_information.Rows[i][4].ToString();
+                    range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex + i, 6], sheet.Cells[startInvoiceContentIndex + i, 6]];
+                    range.HorizontalAlignment = Excel.Constants.xlLeft;
+                    range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+
+
+                    sheet.Cells[startInvoiceContentIndex + i, 7] = (int.Parse(invoice_content_information.Rows[i][5].ToString())/int.Parse(invoice_content_information.Rows[i][4].ToString())).ToString();
+                    range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex + i, 7], sheet.Cells[startInvoiceContentIndex + i, 7]];
+                    range.HorizontalAlignment = Excel.Constants.xlLeft;
+                    range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+
+
+                    sheet.Cells[startInvoiceContentIndex + i, 8] = invoice_content_information.Rows[i][5].ToString();
+                    range = (Excel.Range)sheet.Range[sheet.Cells[startInvoiceContentIndex + i, 8], sheet.Cells[startInvoiceContentIndex + i, 9]];
+                    range.HorizontalAlignment = Excel.Constants.xlLeft;
+                    range.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThin);
+                    range.Merge(Type.Missing);
+                    sum += int.Parse(invoice_content_information.Rows[i][5].ToString());
+
+
+
+                }
+
+                int result = startInvoiceContentIndex + invoice_content_information.Rows.Count;
+
+                sheet.Cells[result, 8] = "Итого:";
+                sheet.Cells[result, 9] = sum;
+                sheet.Cells[result + 1, 8] = "НДС:";
+                sheet.Cells[result + 1, 9] = VAT;
+
+
+                sheet.Cells[result + 2, 7] = "Всего к оплате:";
+                range = (Excel.Range)sheet.Range[sheet.Cells[result + 2, 7], sheet.Cells[result + 2, 8]];
+                range.HorizontalAlignment = Excel.Constants.xlRight;
+                range.Font.Bold = true;
+                range.Merge(Type.Missing);
+                sheet.Cells[result + 2, 9] = totalPrice;
+
+
+                sheet.Cells[result + 4, 1] = "Заверил:";
+
+                range = (Excel.Range)sheet.Range[sheet.Cells[result + 4, 2], sheet.Cells[result + 4, 3]];
+                range.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
+                range.Font.Bold = true;
+                range.Merge(Type.Missing);
+
+
+                sheet.Cells[result + 4, 4] = $@"{Program.agentCard.Surname} {Program.agentCard.Name[0]}.{Program.agentCard.Fathername[0]}.";
+                range = (Excel.Range)sheet.Range[sheet.Cells[result + 4, 4], sheet.Cells[result + 4, 5]];
+                range.Merge(Type.Missing);
+
+
+                sheet.Cells[result + 6, 1] = "Плательщик:";
+
+                range = (Excel.Range)sheet.Range[sheet.Cells[result + 6, 2], sheet.Cells[result + 6, 3]];
+                range.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
+                range.Font.Bold = true;
+                range.Merge(Type.Missing);
+
+                sheet.Cells[result + 6, 4] = $@"{Program.documentCard.clientCard.Surname} {Program.documentCard.clientCard.Name[0]}.{Program.documentCard.clientCard.Fathername[0]}.";
+                range = (Excel.Range)sheet.Range[sheet.Cells[result + 6, 4], sheet.Cells[result + 6, 5]];
+                range.Merge(Type.Missing);
+
+                workBook.SaveAs(invoiceFullNumber);
 
 
             }
@@ -265,11 +427,38 @@ namespace Rental_car
                     return;
 
                 DataGridViewRow selectedRow = getDocumentInvoicesDataGridView.SelectedRows[0];
+                DBConnection.RunQuery($@"UPDATE invoice set Status = 'Оплачен' WHERE Invoice_number =  {selectedRow.Cells[0].Value.ToString()}");
+                selectedRow.Cells[9].Value = "Оплачен";
+
+
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void textBoxVAT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Char.IsDigit(e.KeyChar) && (e.KeyChar !=8);
+        }
+
+      
+
+        private void textBoxCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Char.IsDigit(e.KeyChar) && (e.KeyChar != 8);
+        }
+
+        private void textBoxPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Char.IsDigit(e.KeyChar) && (e.KeyChar != 8);
+        }
+
+        private void textBoxVAT_Leave(object sender, EventArgs e)
+        {
+            if (int.Parse(textBoxVAT.Text) > 0)
+                textBoxVAT.Text = "100";
         }
     }
 }

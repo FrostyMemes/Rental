@@ -152,6 +152,7 @@ namespace Rental_car
             this.Name = "CreateApplicationScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Подать заявку";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateApplicationScreen_FormClosing);
             this.Load += new System.EventHandler(this.CreateApplicationForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

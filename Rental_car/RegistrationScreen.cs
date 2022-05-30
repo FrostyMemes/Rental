@@ -178,7 +178,7 @@ namespace Rental_car
                 MessageBox.Show("Проверьте правильность вашего адреса", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (dtimePassportDate.Value >= DateTime.Now || dtimeBirthday.Value >= DateTime.Now || dtimeBirthday.Value >= dtimePassportDate.Value)
+           if (dtimePassportDate.Value >= DateTime.Now || dtimeBirthday.Value >= DateTime.Now || dtimeBirthday.Value >= dtimePassportDate.Value)
             {
                 MessageBox.Show("Проверьте правильность введенных вами дат", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

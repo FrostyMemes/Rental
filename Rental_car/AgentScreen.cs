@@ -85,7 +85,6 @@ namespace Rental_car
 
                 this.waiting_applicationsTableAdapter.Fill(this.dBDataSet.waiting_applications);
                 this.getConfirmApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmApplications);
-                this.getConfirmApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmApplications);
                 this.searchCarWithParametrsTableAdapter.Fill(this.dBDataSet.SearchCarWithParametrs, "", "", "", "");
                 this.getClientStatisticTableAdapter.Fill(this.dBDataSet.GetClientStatistic, new System.Nullable<int>(((int)(System.Convert.ChangeType(DateTime.Now.Year, typeof(int))))));
                 this.rental_cars_nowTableAdapter.Fill(this.dBDataSet.rental_cars_now);
@@ -460,6 +459,84 @@ namespace Rental_car
             {
                 DBConnection.RunQuery($@"UPDATE application SET Status='Отклонено' WHERE Status = 'Ожидается' AND Receiving_date <= NOW();");
                 this.waiting_applicationsTableAdapter.Fill(this.dBDataSet.waiting_applications);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void toolStripMenuItemDeleteCar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (searchCarWithParametrsDataGridView.SelectedRows.Count == 0)
+                    return;
+
+                DataGridViewRow selectedRow = searchCarWithParametrsDataGridView.SelectedRows[0];
+
+
+
+                if (MessageBox.Show("Вы уверены, что хотите удалить автомобиль???", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    string query = $@"DELETE FROM car WHERE VIN = '{selectedRow.Cells[0].Value.ToString()}';";
+                    DBConnection.RunQuery(query);
+                    searchCarWithParametrsDataGridView.Rows.RemoveAt(selectedRow.Index);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void deleteAllUnderDateConfirmedApplications_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DBConnection.RunQuery($@"UPDATE application SET application.Status = 'Отклонено'
+                                        WHERE application.Status = 'Подтверждено' AND 
+                                        application.Receiving_date <= NOW() AND
+                                        application.Application_code NOT IN 
+                                        (SELECT Application_code FROM 
+                                        (SELECT document.Application_code FROM application, document WHERE application.Application_code = document.Application_code AND document.Document_number) as something);");
+                this.getConfirmApplicationsTableAdapter.Fill(this.dBDataSet.GetConfirmApplications);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void refreshCarCatalogueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.searchCarWithParametrsTableAdapter.Fill(this.dBDataSet.SearchCarWithParametrs, "", "", "", "");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void обновитьТаблицуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.rental_cars_nowTableAdapter.Fill(this.dBDataSet.rental_cars_now);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void refreshTabletoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.not_paid_invoicesTableAdapter.Fill(this.dBDataSet.not_paid_invoices);
             }
             catch (Exception ex)
             {

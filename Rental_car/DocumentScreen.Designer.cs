@@ -819,6 +819,7 @@ namespace Rental_car
             this.buttonExportDocument.TabIndex = 9;
             this.buttonExportDocument.Text = "Печать";
             this.buttonExportDocument.UseVisualStyleBackColor = true;
+            this.buttonExportDocument.Click += new System.EventHandler(this.buttonExportDocument_Click);
             // 
             // buttonConfirmRentalCarReturn
             // 

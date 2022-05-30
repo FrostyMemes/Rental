@@ -116,5 +116,9 @@ namespace Rental_car
             }
         }
 
+        private void CreateApplicationScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.createApplicationScreen = null;
+        }
     }
 }

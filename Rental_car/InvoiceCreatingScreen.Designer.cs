@@ -32,6 +32,17 @@ namespace Rental_car
             this.components = new System.ComponentModel.Container();
             this.buttonAddNewInvoice = new System.Windows.Forms.Button();
             this.getDocumentInvoicesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.getDocumentInvoicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBDataSet = new Rental_car.DBDataSet();
             this.buttonDeleteInvoice = new System.Windows.Forms.Button();
@@ -60,17 +71,6 @@ namespace Rental_car
             this.getDocumentInvoicesTableAdapter = new Rental_car.DBDataSetTableAdapters.GetDocumentInvoicesTableAdapter();
             this.tableAdapterManager = new Rental_car.DBDataSetTableAdapters.TableAdapterManager();
             this.getInvoiceContentForAgentTableAdapter = new Rental_car.DBDataSetTableAdapters.GetInvoiceContentForAgentTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonConfirmPayment = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.getDocumentInvoicesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getDocumentInvoicesBindingSource)).BeginInit();
@@ -120,6 +120,83 @@ namespace Rental_car
             this.getDocumentInvoicesDataGridView.Size = new System.Drawing.Size(1030, 164);
             this.getDocumentInvoicesDataGridView.TabIndex = 3;
             this.getDocumentInvoicesDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.getDocumentInvoicesDataGridView_CellMouseClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Invoice_number";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Номер счета";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Document_number";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Номер документа";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Invoice_date";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Дата оф. счета";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Адрес";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "TIN";
+            this.dataGridViewTextBoxColumn5.HeaderText = "ИНН";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "RVC";
+            this.dataGridViewTextBoxColumn6.HeaderText = "КПП";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "BIC";
+            this.dataGridViewTextBoxColumn7.HeaderText = "БИК";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "VAT";
+            this.dataGridViewTextBoxColumn8.HeaderText = "НДС";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Agent_number";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Номер агента";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Статус";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Total_price";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Итоговая цена";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
             // getDocumentInvoicesBindingSource
             // 
@@ -175,9 +252,9 @@ namespace Rental_car
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(552, 26);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 13);
+            this.label5.Size = new System.Drawing.Size(137, 13);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Цена за услугу/и";
+            this.label5.Text = "Итогова цена за услугу/и";
             // 
             // label3
             // 
@@ -219,6 +296,7 @@ namespace Rental_car
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(172, 20);
             this.textBoxPrice.TabIndex = 2;
+            this.textBoxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPrice_KeyPress);
             // 
             // textBoxCount
             // 
@@ -226,6 +304,7 @@ namespace Rental_car
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(172, 20);
             this.textBoxCount.TabIndex = 1;
+            this.textBoxCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCount_KeyPress);
             // 
             // textBoxServiceUnit
             // 
@@ -247,10 +326,13 @@ namespace Rental_car
             // textBoxVAT
             // 
             this.textBoxVAT.Location = new System.Drawing.Point(168, 483);
+            this.textBoxVAT.MaxLength = 3;
             this.textBoxVAT.Name = "textBoxVAT";
             this.textBoxVAT.Size = new System.Drawing.Size(84, 20);
             this.textBoxVAT.TabIndex = 10;
             this.textBoxVAT.Text = "0";
+            this.textBoxVAT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVAT_KeyPress);
+            this.textBoxVAT.Leave += new System.EventHandler(this.textBoxVAT_Leave);
             // 
             // label4
             // 
@@ -364,83 +446,6 @@ namespace Rental_car
             // getInvoiceContentForAgentTableAdapter
             // 
             this.getInvoiceContentForAgentTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Invoice_number";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Номер счета";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Document_number";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Номер документа";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Invoice_date";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Дата оф. счета";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Address";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Адрес";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TIN";
-            this.dataGridViewTextBoxColumn5.HeaderText = "ИНН";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "RVC";
-            this.dataGridViewTextBoxColumn6.HeaderText = "КПП";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "BIC";
-            this.dataGridViewTextBoxColumn7.HeaderText = "БИК";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "VAT";
-            this.dataGridViewTextBoxColumn8.HeaderText = "НДС";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Agent_number";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Номер агента";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Статус";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Total_price";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Итоговая цена";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
             // buttonConfirmPayment
             // 
