@@ -216,6 +216,7 @@ namespace Rental_car
             // txtTelephone
             // 
             this.txtTelephone.Location = new System.Drawing.Point(136, 280);
+            this.txtTelephone.MaxLength = 12;
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(195, 20);
             this.txtTelephone.TabIndex = 29;

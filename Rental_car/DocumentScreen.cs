@@ -83,11 +83,12 @@ namespace Rental_car
                 textBoxDamageDescriptionBeforeRental.Text                           = Program.documentCard.Description_damage_before;
                 textBoxDamageDescriptionAfterRental.Text                            = Program.documentCard.Description_damage_after;
 
-                if (!String.IsNullOrEmpty(Program.documentCard.Date_inspection_before))              
-                dateTimePickerDamageDescriptionBeforeRental.Value  = DateTime.Parse(Program.documentCard.Date_inspection_before);
+                if (!String.IsNullOrEmpty(Program.documentCard.Date_inspection_before))
+                    dateTimePickerDamageDescriptionBeforeRental.Value = DateTime.Parse(Program.documentCard.Date_inspection_before);
 
                 if (!String.IsNullOrEmpty(Program.documentCard.Date_inspection_after))
                     dateTimePickerDamageDescriptionAfterRental.Value = DateTime.Parse(Program.documentCard.Date_inspection_after);
+
 
                 SetEnableForComponents();
             }
@@ -100,17 +101,16 @@ namespace Rental_car
 
         private void SetEnableForComponents()
         {
-          
 
-          
+
+            groupBoxDamageDescriptionBeforeRental.Enabled = !String.IsNullOrEmpty(Program.documentCard.Description_damage_before) || Program.documentCard.documentExsiting;
+            groupBoxDamageDescriptionAfterRental.Enabled = !String.IsNullOrEmpty(Program.documentCard.Description_damage_after) || Program.documentCard.documentExsiting;
+
             buttonConfirmRentalCarReturn.Enabled                    = Program.documentCard.documentExsiting && (String.IsNullOrEmpty(Program.documentCard.FacticalRentalEnd));
             buttonInvoice.Enabled                                   = Program.documentCard.documentExsiting;
             buttonExportDocument.Enabled                            = Program.documentCard.documentExsiting;
             buttonCreateDocument.Enabled                            = !Program.documentCard.documentExsiting;
-
-
-            groupBoxDamageDescriptionBeforeRental.Enabled   = String.IsNullOrEmpty(Program.documentCard.Description_damage_before);
-            groupBoxDamageDescriptionAfterRental.Enabled    = String.IsNullOrEmpty(Program.documentCard.Description_damage_after);
+            buttonUpdateDamageStatus.Enabled = groupBoxDamageDescriptionBeforeRental.Enabled || groupBoxDamageDescriptionAfterRental.Enabled;
 
         }
 
@@ -178,7 +178,7 @@ namespace Rental_car
         {
             
 
-            if (String.IsNullOrEmpty(Program.documentCard.Date_inspection_before))
+            if (String.IsNullOrEmpty(Program.documentCard.Description_damage_before))
             {
                 DBConnection.RunQuery($@"UPDATE document SET 
                     Date_inspection_before = '{dateTimePickerDamageDescriptionBeforeRental.Value.ToString("yyyy-MM-dd HH:mm:ss")}',
@@ -197,7 +197,7 @@ namespace Rental_car
                 return;
             }
 
-            if (!String.IsNullOrEmpty(Program.documentCard.Date_inspection_after))
+            if (!String.IsNullOrEmpty(Program.documentCard.Description_damage_after))
             {
                 string descrAfterRental = !String.IsNullOrEmpty(textBoxDamageDescriptionAfterRental.Text) ? $@"'{textBoxDamageDescriptionAfterRental.Text}'" : "NULL";
                 DBConnection.RunQuery($@"UPDATE document SET 

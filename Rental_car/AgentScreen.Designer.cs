@@ -112,6 +112,8 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStripRefreshInvoice = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshTabletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.not_paid_invoicesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -135,6 +137,8 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStripRentalCarNow = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.обновитьТаблицуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPageAgentCatalogue = new System.Windows.Forms.TabPage();
             this.fillToolStrip1 = new System.Windows.Forms.ToolStrip();
             this.car_VINToolStripLabel = new System.Windows.Forms.ToolStripLabel();
@@ -224,10 +228,6 @@ namespace Rental_car
             this.childeseatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.applicationcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlAgentScreen = new System.Windows.Forms.TabControl();
-            this.contextMenuStripRentalCarNow = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.обновитьТаблицуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStripRefreshInvoice = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.refreshTabletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripWaitingApplicationTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waiting_applicationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -250,9 +250,11 @@ namespace Rental_car
             ((System.ComponentModel.ISupportInitialize)(this.getClientStatisticDataGridView)).BeginInit();
             this.tabPageNotPaidInvoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getInvoiceContentDataGridView)).BeginInit();
+            this.contextMenuStripRefreshInvoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.not_paid_invoicesDataGridView)).BeginInit();
             this.tabPageRentalCars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rental_cars_nowDataGridView)).BeginInit();
+            this.contextMenuStripRentalCarNow.SuspendLayout();
             this.tabPageAgentCatalogue.SuspendLayout();
             this.fillToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchCarWithParametrsDataGridView)).BeginInit();
@@ -262,8 +264,6 @@ namespace Rental_car
             this.tabPageWaitingApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waitingApplicationsDataGridView)).BeginInit();
             this.tabControlAgentScreen.SuspendLayout();
-            this.contextMenuStripRentalCarNow.SuspendLayout();
-            this.contextMenuStripRefreshInvoice.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripWaitingApplicationTable
@@ -389,26 +389,26 @@ namespace Rental_car
             this.cancelConfirmedApplicationToolStripMenuItem,
             this.clientDetailConfToolStripMenuItem});
             this.contextMenuStripConfirmedApplicationTable.Name = "contextMenuStripConfirmedApplicationTable";
-            this.contextMenuStripConfirmedApplicationTable.Size = new System.Drawing.Size(194, 92);
+            this.contextMenuStripConfirmedApplicationTable.Size = new System.Drawing.Size(194, 70);
             // 
             // documentToolStripMenuItem
             // 
             this.documentToolStripMenuItem.Name = "documentToolStripMenuItem";
-            this.documentToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.documentToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.documentToolStripMenuItem.Text = "Открыть договор";
             this.documentToolStripMenuItem.Click += new System.EventHandler(this.documentToolStripMenuItem_Click);
             // 
             // cancelConfirmedApplicationToolStripMenuItem
             // 
             this.cancelConfirmedApplicationToolStripMenuItem.Name = "cancelConfirmedApplicationToolStripMenuItem";
-            this.cancelConfirmedApplicationToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.cancelConfirmedApplicationToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.cancelConfirmedApplicationToolStripMenuItem.Text = "Отменить заявку";
             this.cancelConfirmedApplicationToolStripMenuItem.Click += new System.EventHandler(this.canceltConfirmedApplicationToolStripMenuItem_Click);
             // 
             // clientDetailConfToolStripMenuItem
             // 
             this.clientDetailConfToolStripMenuItem.Name = "clientDetailConfToolStripMenuItem";
-            this.clientDetailConfToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.clientDetailConfToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.clientDetailConfToolStripMenuItem.Text = "Подробнее о клиенте";
             this.clientDetailConfToolStripMenuItem.Click += new System.EventHandler(this.clientDetailConfToolStripMenuItem_Click);
             // 
@@ -530,6 +530,7 @@ namespace Rental_car
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(291, 189);
             this.txtAddress.TabIndex = 10;
+            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // label10
             // 
@@ -550,9 +551,13 @@ namespace Rental_car
             // txtTelephone
             // 
             this.txtTelephone.Location = new System.Drawing.Point(136, 156);
+            this.txtTelephone.MaxLength = 12;
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(195, 20);
             this.txtTelephone.TabIndex = 29;
+            this.txtTelephone.Text = "+7";
+            this.txtTelephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelephone_KeyPress);
+            this.txtTelephone.Leave += new System.EventHandler(this.txtTelephone_Leave);
             // 
             // label11
             // 
@@ -578,6 +583,7 @@ namespace Rental_car
             this.txtFathername.Name = "txtFathername";
             this.txtFathername.Size = new System.Drawing.Size(195, 20);
             this.txtFathername.TabIndex = 19;
+            this.txtFathername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFathername_KeyPress);
             // 
             // label4
             // 
@@ -603,6 +609,8 @@ namespace Rental_car
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(195, 20);
             this.txtSurname.TabIndex = 10;
+            this.txtSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSurname_KeyPress);
+            this.txtSurname.Leave += new System.EventHandler(this.txtSurname_Leave);
             // 
             // txtName
             // 
@@ -610,6 +618,8 @@ namespace Rental_car
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(195, 20);
             this.txtName.TabIndex = 1;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // groupBox3
             // 
@@ -658,6 +668,7 @@ namespace Rental_car
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(195, 20);
             this.txtEmail.TabIndex = 0;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtPassword
             // 
@@ -666,6 +677,7 @@ namespace Rental_car
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(195, 20);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // tabPageClientStatistic
             // 
@@ -922,6 +934,20 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
             this.dataGridViewTextBoxColumn52.ReadOnly = true;
             // 
+            // contextMenuStripRefreshInvoice
+            // 
+            this.contextMenuStripRefreshInvoice.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshTabletoolStripMenuItem});
+            this.contextMenuStripRefreshInvoice.Name = "contextMenuStripRefreshInvoice";
+            this.contextMenuStripRefreshInvoice.Size = new System.Drawing.Size(177, 26);
+            // 
+            // refreshTabletoolStripMenuItem
+            // 
+            this.refreshTabletoolStripMenuItem.Name = "refreshTabletoolStripMenuItem";
+            this.refreshTabletoolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.refreshTabletoolStripMenuItem.Text = "Обновить таблицу";
+            this.refreshTabletoolStripMenuItem.Click += new System.EventHandler(this.refreshTabletoolStripMenuItem_Click);
+            // 
             // not_paid_invoicesDataGridView
             // 
             this.not_paid_invoicesDataGridView.AllowUserToAddRows = false;
@@ -1137,6 +1163,20 @@ namespace Rental_car
             this.dataGridViewTextBoxColumn62.HeaderText = "Дней задержка возврата";
             this.dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
             this.dataGridViewTextBoxColumn62.ReadOnly = true;
+            // 
+            // contextMenuStripRentalCarNow
+            // 
+            this.contextMenuStripRentalCarNow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.обновитьТаблицуToolStripMenuItem});
+            this.contextMenuStripRentalCarNow.Name = "contextMenuStripRentalCarNow";
+            this.contextMenuStripRentalCarNow.Size = new System.Drawing.Size(177, 26);
+            // 
+            // обновитьТаблицуToolStripMenuItem
+            // 
+            this.обновитьТаблицуToolStripMenuItem.Name = "обновитьТаблицуToolStripMenuItem";
+            this.обновитьТаблицуToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.обновитьТаблицуToolStripMenuItem.Text = "Обновить таблицу";
+            this.обновитьТаблицуToolStripMenuItem.Click += new System.EventHandler(this.обновитьТаблицуToolStripMenuItem_Click);
             // 
             // tabPageAgentCatalogue
             // 
@@ -1903,34 +1943,6 @@ namespace Rental_car
             this.tabControlAgentScreen.Size = new System.Drawing.Size(1308, 624);
             this.tabControlAgentScreen.TabIndex = 0;
             // 
-            // contextMenuStripRentalCarNow
-            // 
-            this.contextMenuStripRentalCarNow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.обновитьТаблицуToolStripMenuItem});
-            this.contextMenuStripRentalCarNow.Name = "contextMenuStripRentalCarNow";
-            this.contextMenuStripRentalCarNow.Size = new System.Drawing.Size(177, 26);
-            // 
-            // обновитьТаблицуToolStripMenuItem
-            // 
-            this.обновитьТаблицуToolStripMenuItem.Name = "обновитьТаблицуToolStripMenuItem";
-            this.обновитьТаблицуToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.обновитьТаблицуToolStripMenuItem.Text = "Обновить таблицу";
-            this.обновитьТаблицуToolStripMenuItem.Click += new System.EventHandler(this.обновитьТаблицуToolStripMenuItem_Click);
-            // 
-            // contextMenuStripRefreshInvoice
-            // 
-            this.contextMenuStripRefreshInvoice.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshTabletoolStripMenuItem});
-            this.contextMenuStripRefreshInvoice.Name = "contextMenuStripRefreshInvoice";
-            this.contextMenuStripRefreshInvoice.Size = new System.Drawing.Size(177, 26);
-            // 
-            // refreshTabletoolStripMenuItem
-            // 
-            this.refreshTabletoolStripMenuItem.Name = "refreshTabletoolStripMenuItem";
-            this.refreshTabletoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.refreshTabletoolStripMenuItem.Text = "Обновить таблицу";
-            this.refreshTabletoolStripMenuItem.Click += new System.EventHandler(this.refreshTabletoolStripMenuItem_Click);
-            // 
             // AgentScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1970,9 +1982,11 @@ namespace Rental_car
             ((System.ComponentModel.ISupportInitialize)(this.getClientStatisticDataGridView)).EndInit();
             this.tabPageNotPaidInvoice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.getInvoiceContentDataGridView)).EndInit();
+            this.contextMenuStripRefreshInvoice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.not_paid_invoicesDataGridView)).EndInit();
             this.tabPageRentalCars.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rental_cars_nowDataGridView)).EndInit();
+            this.contextMenuStripRentalCarNow.ResumeLayout(false);
             this.tabPageAgentCatalogue.ResumeLayout(false);
             this.tabPageAgentCatalogue.PerformLayout();
             this.fillToolStrip1.ResumeLayout(false);
@@ -1986,8 +2000,6 @@ namespace Rental_car
             this.tabPageWaitingApplications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.waitingApplicationsDataGridView)).EndInit();
             this.tabControlAgentScreen.ResumeLayout(false);
-            this.contextMenuStripRentalCarNow.ResumeLayout(false);
-            this.contextMenuStripRefreshInvoice.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

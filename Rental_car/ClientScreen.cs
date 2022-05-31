@@ -36,6 +36,10 @@ namespace Rental_car
 
             try
             {
+
+                regexEmail = new Regex(@"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
+                cbGender.SelectedIndex = 0;
+
                 this.client_catalogueTableAdapter.Fill(this.dBDataSet.client_catalogue);
                 this.getClientInvoicesTableAdapter.Fill(this.dBDataSet.GetClientInvoices, new System.Nullable<int>(((int)(System.Convert.ChangeType(Program.clientCard.Client_number, typeof(int))))));
                 this.getClientApplicationTableAdapter.Fill(this.dBDataSet.GetClientApplication, new System.Nullable<int>(((int)(System.Convert.ChangeType(Program.clientCard.Client_number, typeof(int))))));
@@ -49,6 +53,15 @@ namespace Rental_car
                 txtTelephone.Text = Program.clientCard.Contact_telephone;
                 txtAddress.Text = Program.clientCard.Address;
                 dtimeBirthday.Value = DateTime.Parse(Program.clientCard.Birthday.ToString());
+
+                
+
+                if (getClientInvoicesDataGridView.Rows.Count != 0)
+                {
+                    var selectedRow = getClientInvoicesDataGridView.SelectedRows[0];
+                    this.getInvoiceContentTableAdapter.Fill(this.dBDataSet.GetInvoiceContent, new System.Nullable<int>(((int)(System.Convert.ChangeType(selectedRow.Cells[0].Value, typeof(int))))));
+
+                }
             }
 
 
@@ -57,8 +70,7 @@ namespace Rental_car
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
-            regexEmail = new Regex(@"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
-            cbGender.SelectedIndex = 0;
+            
         }
 
         private void fillToolStripButton_Click(object sender, EventArgs e)
@@ -185,7 +197,13 @@ namespace Rental_car
         {
             try
             {
-                string idApplication = getClientApplicationDataGridView.Rows[selectedApplicationRow].Cells[13].Value.ToString();
+                if (getClientApplicationDataGridView.Rows.Count == 0)
+                    return;
+
+                var selectedRow = getClientApplicationDataGridView.SelectedRows[0];
+
+
+                string idApplication = selectedRow.Cells[13].Value.ToString();
                 string status = DBConnection.GetResultQueryString($"Select Status from application where Application_code = {idApplication}");
 
                 if (status == "Отклонено")
@@ -274,6 +292,7 @@ namespace Rental_car
         private void txtTelephone_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = (!Char.IsDigit(e.KeyChar) && e.KeyChar != 8) || (txtTelephone.Text.Length == 2 && e.KeyChar == 8);
+
         }
 
         private void cbGender_KeyPress(object sender, KeyPressEventArgs e)
@@ -305,6 +324,8 @@ namespace Rental_car
         private void txtTelephone_Leave(object sender, EventArgs e)
         {
             telephoneCorrection = (txtTelephone.Text.Length == 12);
+            if (txtTelephone.Text.Length < 2)
+                txtTelephone.Text = "+7";
         }
 
         private void txtAddress_Leave(object sender, EventArgs e)

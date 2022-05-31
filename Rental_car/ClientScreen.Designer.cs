@@ -610,9 +610,11 @@ namespace Rental_car
             // txtTelephone
             // 
             this.txtTelephone.Location = new System.Drawing.Point(136, 152);
+            this.txtTelephone.MaxLength = 12;
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(195, 20);
             this.txtTelephone.TabIndex = 29;
+            this.txtTelephone.Text = "+7";
             this.txtTelephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelephone_KeyPress);
             this.txtTelephone.Leave += new System.EventHandler(this.txtTelephone_Leave);
             // 

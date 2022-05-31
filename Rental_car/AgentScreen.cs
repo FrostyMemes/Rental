@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
 
 namespace Rental_car
 {
@@ -16,7 +18,15 @@ namespace Rental_car
         int selectedWaitingApplicationRow;
         int selectedConfirmedApplicationsRow;
         int selectedCarInformationRow;
-        int selectedClientStatisticRow;
+
+        bool emailCorrection = true;
+        bool passwordCorrection = true;
+        bool surnameCoorection = true;
+        bool nameCorrection = true;
+        bool telephoneCorrection = true;
+        bool addressCorrection = true;
+
+        Regex regexEmail;
 
         public AgentScreen()
         {
@@ -69,7 +79,8 @@ namespace Rental_car
         private void AgentScreen_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dBDataSet.GetConfirmApplications". При необходимости она может быть перемещена или удалена.
-            
+
+            regexEmail = new Regex(@"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
 
 
             try
@@ -90,6 +101,11 @@ namespace Rental_car
                 this.rental_cars_nowTableAdapter.Fill(this.dBDataSet.rental_cars_now);
                 this.not_paid_invoicesTableAdapter.Fill(this.dBDataSet.not_paid_invoices);
 
+                if (not_paid_invoicesDataGridView.Rows.Count != 0)
+                {
+
+                    this.getInvoiceContentTableAdapter.Fill(this.dBDataSet.GetInvoiceContent, new System.Nullable<int>(((int)(System.Convert.ChangeType(not_paid_invoicesDataGridView.Rows[0].Cells[0].Value, typeof(int))))));
+                }
 
             }
             catch (System.Exception ex)
@@ -124,12 +140,17 @@ namespace Rental_car
         {
             try
             {
+                if (waitingApplicationsDataGridView.Rows.Count == 0)
+                    return;
+
+                var selectedRow = waitingApplicationsDataGridView.SelectedRows[0];
+
                 DBConnection.RunQuery($@"UPDATE application SET 
                                        Status = 'Подтверждено',
                                        Confirmed_date = DEFAULT,
                                        Agent_number = {Program.agentCard.Agent_number}
-                                       WHERE Application_code = {waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[16].Value}");
-                waitingApplicationsDataGridView.Rows.RemoveAt(selectedWaitingApplicationRow);
+                                       WHERE Application_code = {selectedRow.Cells[16].Value}");
+                waitingApplicationsDataGridView.Rows.RemoveAt(selectedRow.Index);
                 
                 MessageBox.Show("Заявка подтверждена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -143,13 +164,18 @@ namespace Rental_car
         {
             try
             {
+                if (waitingApplicationsDataGridView.Rows.Count == 0)
+                    return;
+
+                var selectedRow = waitingApplicationsDataGridView.SelectedRows[0];
+
                 DBConnection.RunQuery($@"UPDATE application SET 
                                        Status = 'Отклонено',
                                        Confirmed_date = DEFAULT,
                                        Agent_number = {Program.agentCard.Agent_number}
-                                       WHERE Application_code = {waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[16].Value}");
-                waitingApplicationsDataGridView.Rows.RemoveAt(selectedWaitingApplicationRow);
-                
+                                       WHERE Application_code = {selectedRow.Cells[16].Value}");
+                waitingApplicationsDataGridView.Rows.RemoveAt(selectedRow.Index);
+
                 MessageBox.Show("Заявка отклонена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -161,9 +187,13 @@ namespace Rental_car
 
 
         private void detailClientWaitingApplicationToolStripMenuItem_Click(object sender, EventArgs e)
-        {         
-            
-             OpenClientDetail(waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[4].Value.ToString());
+        {
+            if (waitingApplicationsDataGridView.Rows.Count == 0)
+                return;
+
+            var selectedRow = waitingApplicationsDataGridView.SelectedRows[0];
+
+            OpenClientDetail(selectedRow.Cells[4].Value.ToString());
 
         }
 
@@ -181,7 +211,12 @@ namespace Rental_car
         {
             if (e.RowIndex != -1)
             {
-                OpenClientDetail(waitingApplicationsDataGridView.Rows[selectedWaitingApplicationRow].Cells[4].Value.ToString());
+                if (waitingApplicationsDataGridView.Rows.Count == 0)
+                    return;
+
+                var selectedRow = waitingApplicationsDataGridView.SelectedRows[0];
+
+                OpenClientDetail(selectedRow.Cells[4].Value.ToString());
             }
         }
 
@@ -200,7 +235,12 @@ namespace Rental_car
 
         private void searchCarWithParametrsDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            var carData = DBConnection.GetResultQueryDataTable($@"Select * from car where VIN = '{searchCarWithParametrsDataGridView.Rows[selectedCarInformationRow].Cells[0].Value.ToString()}';");
+            if (searchCarWithParametrsDataGridView.Rows.Count == 0)
+                return;
+
+            var selectedRow = searchCarWithParametrsDataGridView.SelectedRows[0];
+
+            var carData = DBConnection.GetResultQueryDataTable($@"Select * from car where VIN = '{selectedRow.Cells[0].Value.ToString()}';");
             if (carData.Rows.Count != 0)
             {
                 Program.carCardMode = 1;
@@ -270,9 +310,13 @@ namespace Rental_car
         {
             try
             {
-                string email = getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[4].Value.ToString();
-                string regNum = getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[9].Value.ToString();
-                string idApplication = getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[19].Value.ToString();
+                if (getConfirmApplicationsDataGridView.Rows.Count == 0)
+                    return;
+
+                var selectedRow = getConfirmApplicationsDataGridView.SelectedRows[0];
+                string email = selectedRow.Cells[4].Value.ToString();
+                string regNum = selectedRow.Cells[9].Value.ToString();
+                string idApplication = selectedRow.Cells[19].Value.ToString();
                 Program.documentCard = new DocumentCard(idApplication, email, regNum);
 
                 if (Program.documentScreen == null)
@@ -301,7 +345,12 @@ namespace Rental_car
         {
             try
             {
-                if (CheckDocumentExsiting(getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[19].Value.ToString()))
+                if (getConfirmApplicationsDataGridView.Rows.Count == 0)
+                    return;
+
+                var selectedRow = getConfirmApplicationsDataGridView.SelectedRows[0];
+
+                if (CheckDocumentExsiting(selectedRow.Cells[19].Value.ToString()))
                 {
                     MessageBox.Show("На данную заявку уже были оформлены документы", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -312,8 +361,8 @@ namespace Rental_car
                                        Status = 'Отклонено',
                                        Confirmed_date = DEFAULT,
                                        Agent_number = {Program.agentCard.Agent_number}
-                                       WHERE Application_code = {getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[19].Value}");
-                    getConfirmApplicationsDataGridView.Rows.RemoveAt(selectedConfirmedApplicationsRow);
+                                       WHERE Application_code = {selectedRow.Cells[19].Value}");
+                    getConfirmApplicationsDataGridView.Rows.RemoveAt(selectedRow.Index);
 
                     MessageBox.Show("Заявка отклонена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -326,7 +375,11 @@ namespace Rental_car
 
         private void clientDetailConfToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenClientDetail(getConfirmApplicationsDataGridView.Rows[selectedConfirmedApplicationsRow].Cells[4].Value.ToString());
+            if (getConfirmApplicationsDataGridView.Rows.Count == 0)
+                return;
+
+            var selectedRow = getConfirmApplicationsDataGridView.SelectedRows[0];
+            OpenClientDetail(selectedRow.Cells[4].Value.ToString());
         }
 
         private void getConfirmApplicationsDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -343,7 +396,12 @@ namespace Rental_car
 
         private void toolStripMenuItemUpdateCar_Click(object sender, EventArgs e)
         {
-            var carData = DBConnection.GetResultQueryDataTable($@"Select * from car where VIN = '{searchCarWithParametrsDataGridView.Rows[selectedCarInformationRow].Cells[0].Value.ToString()}';");
+            if (searchCarWithParametrsDataGridView.Rows.Count == 0)
+                return;
+
+            var selectedRow = searchCarWithParametrsDataGridView.SelectedRows[0];
+
+            var carData = DBConnection.GetResultQueryDataTable($@"Select * from car where VIN = '{selectedRow.Cells[0].Value.ToString()}';"); 
             if (carData.Rows.Count != 0)
             {
                 Program.carCardMode = 1;
@@ -413,6 +471,45 @@ namespace Rental_car
         {
             try
             {
+
+
+                if (!emailCorrection)
+                {
+                    MessageBox.Show("Проверьте правильность вашего Email", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!passwordCorrection)
+                {
+                    MessageBox.Show("Пароль не соответствует необходимому формату", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!surnameCoorection)
+                {
+                    MessageBox.Show("Проверьте правильность вашей фамилии", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!nameCorrection)
+                {
+                    MessageBox.Show("Проверьте правильность вашего имени", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!telephoneCorrection)
+                {
+                    MessageBox.Show("Проверьте правильность вашего номера телефона", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!addressCorrection)
+                {
+                    MessageBox.Show("Проверьте правильность вашего адреса", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (dtimeBirthday.Value >= DateTime.Now)
+                {
+                    MessageBox.Show("Проверьте правильность введенных вами дат", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 DBConnection.RunQuery($@"UPDATE agent SET 
                                                     Email = '{txtEmail.Text}', 
                                                     Password = '{txtPassword.Text}', 
@@ -457,6 +554,8 @@ namespace Rental_car
         {
             try
             {
+
+
                 DBConnection.RunQuery($@"UPDATE application SET Status='Отклонено' WHERE Status = 'Ожидается' AND Receiving_date <= NOW();");
                 this.waiting_applicationsTableAdapter.Fill(this.dBDataSet.waiting_applications);
             }
@@ -542,6 +641,67 @@ namespace Rental_car
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txtTelephone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (!Char.IsDigit(e.KeyChar) && e.KeyChar != 8) || (txtTelephone.Text.Length == 2 && e.KeyChar == 8);
+
+        }
+
+        private void txtSurname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (!Regex.Match(e.KeyChar.ToString(), @"[а-яА-Я]|[a-zA-Z]").Success && e.KeyChar != 8);
+
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (!Regex.Match(e.KeyChar.ToString(), @"[а-яА-Я]|[a-zA-Z]").Success && e.KeyChar != 8);
+
+        }
+
+        private void txtFathername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (!Regex.Match(e.KeyChar.ToString(), @"[а-яА-Я]|[a-zA-Z]").Success && e.KeyChar != 8);
+
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            emailCorrection = (regexEmail.IsMatch(txtEmail.Text) && txtEmail.Text.Length > 0);
+
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            passwordCorrection = (txtPassword.Text.Length >= 8);
+
+        }
+
+        private void txtSurname_Leave(object sender, EventArgs e)
+        {
+            surnameCoorection = (txtSurname.Text.Length > 0);
+
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            nameCorrection = (txtName.Text.Length > 0);
+
+        }
+
+        private void txtTelephone_Leave(object sender, EventArgs e)
+        {
+            telephoneCorrection = (txtTelephone.Text.Length == 12);
+            if (txtTelephone.Text.Length < 2)
+                txtTelephone.Text = "+7";
+        }
+
+        private void txtAddress_Leave(object sender, EventArgs e)
+        {
+            addressCorrection = (txtAddress.Text.Length > 0);
+
         }
     }
 }

@@ -114,6 +114,8 @@ namespace Rental_car
         private void txtTelephone_Leave(object sender, EventArgs e)
         {
             telephoneCorrection = (txtTelephone.Text.Length == 12);
+            if (txtTelephone.Text.Length < 2)
+                txtTelephone.Text = "+7";
         }
 
         private void txtAddress_Leave(object sender, EventArgs e)
